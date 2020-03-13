@@ -1,2 +1,2 @@
 # Maimoji
-Repo for Maimoji App project
+## Repo for Maimoji App project
