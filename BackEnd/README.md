@@ -1,3 +1,0 @@
-# Maimoji
-
-### Folder for BackEnd
