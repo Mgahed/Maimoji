@@ -21,10 +21,9 @@ class pguserdao(userdao):
             newuser = userr(firstName,lastName,mail,WhatsAppNumber,Password)
             db.session.add(newuser)
             db.session.commit()
-            print("added")
+            return True
         except:
-            print("An exception occurred")
-
+            return False
 
     def getuser(userr):
         pass
