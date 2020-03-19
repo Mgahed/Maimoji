@@ -1,5 +1,7 @@
 from DAOFact import *
 from pguserdao import *
+from pgmsgdao import *
+from pgcontactdao import *
 
 class pgdaofact(DAOFact):
 
@@ -19,5 +21,10 @@ class pgdaofact(DAOFact):
 
 
     def getuserdao():
-        
         return pguserdao()
+
+    def getmsgdao():
+        return pgmsgdao()
+
+    def getcontactdao():
+        return pgcontactdao()
