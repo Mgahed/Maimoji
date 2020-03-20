@@ -4,6 +4,7 @@ from flask_sqlalchemy import *
 db = SQLAlchemy()
 
 class contact(db.Model):
+    
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)
 

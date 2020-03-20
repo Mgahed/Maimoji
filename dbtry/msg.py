@@ -31,13 +31,13 @@ class MSG(db.Model):
         return self.msgDate
 ##########################################
     def setsender(self):
-        return self.userID1 = userID1
+        self.userID1 = userID1
 
     def setreceiver(self):
-        return self.userID2 = userID2
+        self.userID2 = userID2
 
     def setmsgcontent(self):
-        return self.msgContent = msgContent
+        self.msgContent = msgContent
 
     def setmsgdate(self):
-        return self.msgDate = msgDate
+        self.msgDate = msgDate
