@@ -18,8 +18,18 @@ class pguserdao(userdao):
         except:
             return False
 
-    def getuser(self):
-        pass
+    def getuser(self,usertext,choice):
+        try:
+            if choice == "mail":
+                getauser = userr.query.filter_by(mail=usertext).first()
+                # print(userlgin.userID)
+                return True,getauser.userID
+            else:
+                getauser = userr.query.filter_by(WhatsAppNumber=usertext).first()
+                # print(userlgin.userID)
+                return True,getauser.userID
+        except:
+            return False
 
     def logintuser(self,wnum,pas):
         Whats = wnum

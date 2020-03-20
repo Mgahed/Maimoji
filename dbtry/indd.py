@@ -8,11 +8,14 @@ aaa = pgdaofact.getuserdao()
 # ln = input("lastName ")
 # mail = input("mail ")
 number = input("number ")
-Password = input("pass ")
+# Password = input("pass ")
 # user1=userr(fn,ln,mail,number,Password)
 
 # res = aaa.insertuser(user1)
-res = aaa.logintuser(number,Password)
+# res = aaa.logintuser(number,Password)
 
+# choice = "mail"
+choice = 'number'
+res = aaa.getuser(number,choice)
 
 print(res)
