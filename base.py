@@ -12,12 +12,12 @@ app.config['SECRET_KEY'] = 'mykey'
 ########################
 ###db section###########
 ########################
-basdir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db = SQLAlchemy(app)
-Migrate(app,db)
+# basdir = os.path.abspath(os.path.dirname(__file__))
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#
+# db = SQLAlchemy(app)
+# Migrate(app,db)
 ####################################
 
 
@@ -34,11 +34,10 @@ def index():
 
 
 @app.route('/home')
-def add_pupp():
+def NormalLogin():
     active = 'home'
-    pupp = puppy.query.all()
-    owners = owner.query.all()
-    return render_template('home.html',pupp=pupp,owners=owners,active=active)
+
+    return render_template('home.html',)
 
 
 @app.errorhandler(404)

@@ -10,13 +10,6 @@ class pguserdao(userdao):
         WhatsAppNumber = user.getWnum()
         Password = user.getPassword()
 
-        app = Flask(__name__)
-        basdir = os.path.abspath(os.path.dirname(__file__))
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        db = SQLAlchemy(app)
-        Migrate(app,db)
-
         try:
             newuser = userr(firstName,lastName,mail,WhatsAppNumber,Password)
             db.session.add(newuser)
@@ -25,8 +18,19 @@ class pguserdao(userdao):
         except:
             return False
 
-    def getuser(userr):
+    def getuser(self):
         pass
 
-    def logintuser(userr):
-        pass
+    def logintuser(self,wnum,pas):
+        Whats = wnum
+        Password = pas
+        # print(Whats)
+        # print("########################################")
+
+        try:
+            userlgin = userr.query.filter_by(WhatsAppNumber=Whats).filter_by(Password=Password).first()
+            # print(userlgin.userID)
+            return True
+            # return True
+        except:
+            return False

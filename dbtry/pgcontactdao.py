@@ -5,7 +5,7 @@ from contact import *
 class pgcontactdao(contactdao):
 
 
-    def addcontact(self,contact:contact,User:userr):
+    def addcontact(self,contact:contact,user:userr):
         userID1 = contact.getuserid1()
         userID2 = contact.getuserid2()
         firstName = user.getFN()
@@ -14,13 +14,6 @@ class pgcontactdao(contactdao):
         WhatsAppNumber = user.getWnum()
         Password = user.getPassword()
 
-
-        app = Flask(__name__)
-        basdir = os.path.abspath(os.path.dirname(__file__))
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
-        app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-        db = SQLAlchemy(app)
-        Migrate(app,db)
 
         try:
             newcontact= contact(userID1,userID2)

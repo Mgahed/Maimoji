@@ -1,14 +1,18 @@
 import os
 from flask import *
 from flask_sqlalchemy import *
-db = SQLAlchemy()
+
+app = Flask(__name__)
+basdir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+Migrate(app,db)
 
 class contact(db.Model):
-# <<<<<<< HEAD
-    contactID = db.Column(db.Integer,primary_key=True)
-# =======
 
-# >>>>>>> f567bf07103ea25a065a3b1169d80fba3ced0280
+    contactID = db.Column(db.Integer,primary_key=True)
+
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)
 

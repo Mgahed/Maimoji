@@ -3,7 +3,13 @@ from flask import *
 from flask_sqlalchemy import *
 from flask_migrate import *
 
-db = SQLAlchemy()
+app = Flask(__name__)
+basdir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+Migrate(app,db)
+
 class MSG(db.Model):
     msgID = db.Column(db.Integer,primary_key=True)
     userID1 = db.Column(db.Integer)
