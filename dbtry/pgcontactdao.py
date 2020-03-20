@@ -1,6 +1,7 @@
 from pgdaofact import *
 from contactdao import *
 from contact import *
+
 class pgcontactdao(contactdao):
 
 
@@ -12,7 +13,6 @@ class pgcontactdao(contactdao):
         mail = user.getMail()
         WhatsAppNumber = user.getWnum()
         Password = user.getPassword()
-
 
 
         app = Flask(__name__)
@@ -34,5 +34,6 @@ class pgcontactdao(contactdao):
     def getcontact(contact):
         pass
 
+         # contact.getuserid2
     def getcontacts(contact):
         pass

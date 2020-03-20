@@ -4,6 +4,7 @@ from flask_sqlalchemy import *
 db = SQLAlchemy()
 
 class contact(db.Model):
+    contactID = db.Column(db.Integer,primary_key=True)
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)
 
@@ -12,6 +13,7 @@ class contact(db.Model):
         self.__userID2=userID2
 
 ############################################
+
     def getuserid1(self):
         return self.userID1
 
@@ -20,8 +22,9 @@ class contact(db.Model):
 
 
 ##########################################
+
     def setuserid1(self):
-        return self.userID1
+        self.userID1 = userID1
 
     def setuserid2(self):
-        return self.userID2
+        self.userID2 = userID2
