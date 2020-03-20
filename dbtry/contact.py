@@ -4,7 +4,11 @@ from flask_sqlalchemy import *
 db = SQLAlchemy()
 
 class contact(db.Model):
+<<<<<<< HEAD
     contactID = db.Column(db.Integer,primary_key=True)
+=======
+    
+>>>>>>> f567bf07103ea25a065a3b1169d80fba3ced0280
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)
 
