@@ -1,2 +1,3 @@
 # Maimoji
-### Repo for Maimoji App project
+
+### Folder for BackEnd
