@@ -17,10 +17,10 @@ number = input("number ")
 # user1=userr(fn,ln,mail,number,Password)
 
 # res = aaa.insertuser(user1)
-res = aaa.getcontact(number)
+# res = aaa.logintuser(number,Password)
 
 # choice = "mail"
 choice = 'number'
-res = aaa.getcontact(number,choice)
+res = aaa.getuser(number,choice)
 
 print(res)
