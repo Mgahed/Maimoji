@@ -1,0 +1,160 @@
+
+/*
+**  Title   : Login Form
+**  author  : Youssef El-Nagar
+**  Date    : 19/03/2020
+*/
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+
+}
+body{
+  font-family:cursive;
+  background-color: #DDD;
+}
+
+.container{
+  /*background-color: rgba(0, 0, 0, 0.7);*/
+  background-color: #DDD;
+  overflow:hidden;
+  height:1400px;
+  width:500px;
+  border-radius: 5px;
+  margin: 20px auto;
+  padding:40px;
+
+}
+
+.but-groups{
+  width:100%;
+  padding: 0;
+  margin: 20px auto;
+  position:relative;
+  box-shadow: 0 0 8px -1px #6D315F;
+  border-radius: 30px;
+  }
+ .but-groups button{
+  border:none;
+  outline: none;
+  cursor: pointer;
+  width:49%;
+  padding:10px 30px;
+  background: transparent;
+  position:relative;
+}
+#btn{
+  top:0;
+  left:0;
+  position: absolute;
+  width:50%;
+  height:100%;
+  border-radius: 30px;
+  transition: left 1s ease-in;
+  background: linear-gradient(to right, #3D73AC, #8B3E7C);
+}
+#btn:hover{
+
+}
+#login{
+    left:0;
+    transition: left 1s ease-in;
+}
+#log-gmail{
+color:#f00;
+  font-size: 16px
+}
+
+.container .inputBox{
+  position:relative;
+
+}
+.container h2 {
+  text-align:center;
+  margin: 0 0 30px
+}
+.container input{
+background-color: #DDD;
+  width:100%;
+  padding: 20px 0 5px 10px;
+  border:none;
+  outline: none;
+  font-size: 18px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 30px;
+  color: rgba(14, 21, 16, 0.7)
+}
+.container label{
+  position:absolute;
+  top:-2px;
+  left:0;
+  width:100%;
+  outline: none;
+  pointer-events: none;
+  transition: .5s;
+
+}
+.container input:focus ~ label
+{
+  top:-18px;
+  left:0;
+  color: #03a9f4;
+  font-size:15px
+}
+
+.container input[type="submit"],#log-gmail{
+  /*padding:5px;*/
+  border:0;
+  background-color: #456DA7;
+  padding: 10px;
+  border-radius:15px;
+  font-weight:bold;
+  color:#FFF;
+  cursor: pointer;
+  width:100%;
+}
+.icon-style{
+  color: #7B4885;
+font-weight: bold;
+font-size: 25px;
+margin-left: 7px;
+}
+@-ms-viewport{
+  width: device-width;
+}
+.img-cont{
+  z-index: 15;
+  position: absolute;
+  top: -500px;
+  left: 43%;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  animation: moving 2.25s ease-in-out;
+}
+img{
+
+  width: 200px;
+  animation: moving 2.25s ease-in-out;
+}
+
+@keyframes moving {
+  0%{
+    top:-500px;
+  }
+  25%{
+    transform: translateZ(200px) rotateX(10deg);
+
+  }
+  35%{
+    transform: translateZ(300px) rotateX(-10deg)
+  }
+  100%{
+    top:250px;
+  }
+
+
+}

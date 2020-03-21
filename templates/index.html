@@ -1,0 +1,46 @@
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login &amp; Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+      <div class="container" id="container">
+
+        <div class="but-groups">
+
+          <div id="btn"></div> <!--This div for the color which deal with cursor-->
+          <button onclick="login()">Login</button>
+          <button onclick="signUp()">Sign Up</button>
+        </div>
+
+        <form id="login"action="{{url_for('login page')}}" method="post">
+
+          <div class="inputBox">
+              <input type="text" name="" value="" required="">
+              <label>Username Name</label>
+          </div>
+          <div class="inputBox">
+                <input type="password" name="" value="" required="">
+                <label> Password</label>
+          </div>
+          <input type="submit" name="login-submit" value="Login">
+        </form>
+
+      </div>
+      <div class="img-cont">
+      <img src="images/001.png" alt="">
+      </div>
+      <script>
+
+        function signUp() {
+          window.open("file:///C:/Users/Radwa1/Desktop/project/templates/index2.html");
+        }
+
+      </script>
+  </body>
+</html>

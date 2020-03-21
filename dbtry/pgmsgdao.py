@@ -17,5 +17,5 @@ class pgmsgdao(msgdao):
         except:
             return False
 
-    def getmsg(MSG):
+    def getmsg(msg):
         pass

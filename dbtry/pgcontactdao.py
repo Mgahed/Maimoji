@@ -24,9 +24,29 @@ class pgcontactdao(contactdao):
             print("An exception occurred")
 
 
-    def getcontact(contact):
-        pass
+    # def getcontact(self,usid2):
+    #     userid = usid2
+    #
+    #     try:
+    #         getcont = contact.query.filter_by(userID2=usid2).first()
+    #         return True,getcont.contactId
+    #
+    #     except:
+    #         return False
 
          # contact.getuserid2
-    def getcontacts(contact):
-        pass
+    def getcontacts(self,userid1,usrid2,choice):
+        # usrid = userid1
+        # usrr = usrid2
+
+        try:
+            if choice == "userID1":
+                getcontt = contact.query.filter_by(userID1=userID1).first()
+                return True,getcontt.contactID
+
+            else:
+                getcontt = contact.query.filter_by(userID2=userID2).first()
+                return True,getcontt.contactID
+
+        except:
+            return False
