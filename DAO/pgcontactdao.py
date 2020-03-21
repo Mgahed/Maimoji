@@ -35,7 +35,7 @@ class pgcontactdao(contactdao):
     #         return False
 
          # contact.getuserid2
-    def getcontacts(self,userid1,usrid2,choice):
+    def getcontacts(self,userid1,usrid2):
         # usrid = userid1
         # usrr = usrid2
 

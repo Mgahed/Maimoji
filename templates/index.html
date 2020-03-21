@@ -21,55 +21,56 @@
         <!--<h2>Sign Up</h2>-->
 
         <!-- start The First Form Login-->
-        <form id="login"action="index.html" method="post">
+        <form id="login" action="index.html" method="post">
 
           <div class="inputBox">
-              <input type="text" name="" value="" required="">
-              <label>Username Name</label>
+              <input type="text" name="number" required>
+              <label>Mobile Number</label>
           </div>
           <div class="inputBox">
-                <input type="password" name="" value="" required="">
+                <input type="password" name="pass" required>
                 <label> Password</label>
           </div>
           <input type="submit" name="login-submit" value="Login">
+          <h2>OR</h2>
+          <button type="button" id="gmailbtn" name="button">
+            <h3><i class="fa fa-google"> </i> Login With Gmail</h3>
+          </button>
         </form>
         <!-- start The First Form Login-->
         <form id="signUp" action="index.html" method="post">
 
           <div class="inputBox">
-              <input type="text" name="" value="" required="">
+              <input type="text" name="FN" required>
               <label>First Name</label>
           </div>
           <div class="inputBox">
-              <input type="text" name="" value="" required="">
+              <input type="text" name="LN" required>
               <label>Last Name</label>
           </div>
         <div class="inputBox">
-              <input type="email" name="" value="" required="">
+              <input type="email" name="mail" required>
               <label>E-Mail</label>
         </div>
         <div class="inputBox">
-              <input type="text" name="" value="" required="">
+              <input type="text" name="wnum" required>
               <label>Whats App Number</label>
         </div>
         <div class="inputBox">
-              <input type="password" name="" value="" required="">
+              <input type="password" name="pass" required>
               <label>Password</label>
         </div>
         <div class="inputBox">
-              <input type="password" name="" value="" required="">
+              <input type="password" name="cpass" required>
               <label>Confirm Password</label>
         </div>
           <input type="submit" name="send" value="send">
-          <h2>OR</h2>
-          <button type="button" id="log-gmail"name="button">
-            Sign-up With Gmail <i class="fa fa-google icon-style"></i>
-          </button>
         </form>
       </div>
       <div class="img-cont">
       <img src="images/001.png" alt="">
       </div>
+      </body>
       <script>
         var x = document.getElementById("login"),
             y = document.getElementById("signUp"),
@@ -80,9 +81,9 @@
           x.style.left = "550px";
           x.style.position= "relative";
           y.style.left= "0";
-          y.style.top= "-225px";
+          y.style.top= "-310px";
           z.style.left = "50%";
-          l.style.height = "1500px";
+          l.style.height = "680px";
 
         }
         function login() {
@@ -91,8 +92,7 @@
           y.style.left= "550px";
           y.style.top= "0";
           z.style.left = "0";
-          l.style.height = "320px";
+          l.style.height = "443px";
         }
       </script>
-  </body>
 </html>
