@@ -1,9 +1,12 @@
+import sys
 import os
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import *
 
-# p=rint(basdir)
+basdir = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(1, basdir+'/DAO')
+from  pgdaofact import *
 
 app = Flask(__name__)
 
@@ -29,7 +32,6 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
-    active = 'home'
     return render_template('index.html',active=active)
 
 
@@ -37,9 +39,15 @@ def index():
 def NormalLogin():
     active = 'home'
 
-    return render_template('home.html',)
+    return render_template('home.html')
+
+def GmailLogin():
+    active = 'home'
+
+    return render_template('home.html')
 
 
+##############404 not found####################
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
