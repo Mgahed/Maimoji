@@ -3,6 +3,7 @@ import os
 basdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdir+'/DAO')
 
+
 from pgdaofact import *
 
 app = Flask(__name__)
