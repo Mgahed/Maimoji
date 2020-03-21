@@ -1,5 +1,7 @@
 import sys
-sys.path.insert(1, 'D:/aastproject/Maimoji/dbtry')
+import os
+basdir = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(1, basdir+'/DAO')
 
 from pgdaofact import *
 
@@ -22,4 +24,3 @@ choice = 'number'
 res = aaa.getuser(number,choice)
 
 print(res)
- 
