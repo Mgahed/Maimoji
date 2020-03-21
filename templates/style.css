@@ -65,10 +65,15 @@ body{
     transition: left 1s ease-in;
 }
 #log-gmail{
-color:#f00;
+
   font-size: 16px
 }
-
+#signUp{
+  transition: left 1.5s ease-out;
+  left: 550px;
+  position: relative;
+  top:0
+}
 .container .inputBox{
   position:relative;
 
