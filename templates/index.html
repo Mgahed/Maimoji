@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login &amp; Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   </head>
   <body>
 
@@ -21,7 +21,7 @@
         <!--<h2>Sign Up</h2>-->
 
         <!-- start The First Form Login-->
-        <form id="login" action="index.html" method="post">
+        <form id="login" action="{{url_for('NormalLogin')}}" method="post">
 
           <div class="inputBox">
               <input type="text" name="lnum" required>
@@ -68,9 +68,9 @@
         </form>
       </div>
       <div class="img-cont">
-      <img src="images/001.png" alt="">
+      <img src="{{ url_for('static', filename='images/001.png') }}">
       </div>
-      </body>
+
       <script>
         var x = document.getElementById("login"),
             y = document.getElementById("signUp"),
@@ -95,4 +95,5 @@
           l.style.height = "443px";
         }
       </script>
+      </body>
 </html>

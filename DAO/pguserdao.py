@@ -36,11 +36,9 @@ class pguserdao(userdao):
         Password = pas
         # print(Whats)
         # print("########################################")
-
         try:
             userlgin = userr.query.filter_by(WhatsAppNumber=Whats).filter_by(Password=Password).first()
-            # print(userlgin.userID)
-            return True,userlgin.userID
-            # return True
+        # print(userlgin.userID)
+            return True,userlgin.firstName
         except:
-            return False
+            return False,False

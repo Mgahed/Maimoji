@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import Signup from './Signup';
+import Signup from './Signup';
 
 
 const App = () => {
@@ -22,4 +22,3 @@ const App = () => {
 
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
