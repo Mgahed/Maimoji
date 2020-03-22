@@ -7,7 +7,7 @@ basdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdir+'../')
 from base import *
 
-class MSG(db.Model):
+class msg(db.Model):
     msgID = db.Column(db.Integer,primary_key=True)
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)

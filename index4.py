@@ -7,20 +7,20 @@ from pgdaofact import *
 
 app = Flask(__name__)
 
-aaa = pgdaofact.getcontactdao()
+aaa = pgdaofact.getmsgdao()
 
 # fn = input("firstName ")
 # ln = input("lastName ")
-# mail = input("mail ")
-number = input("number")
+number = input("enter the user ID ")
+# Date = input("text")
 # Password = input("pass ")
 # user1=userr(fn,ln,mail,number,Password)
 
 # res = aaa.insertuser(user1)
-res = aaa.getcontacts(number)
+# res = aaa.getcontacts(number)
 
 # choice = "mail"
-# choice = 'number'
-# res = aaa.getcontact(number,choice)
+# choice = 'Date'
+res = aaa.getmsg(number)
 
 print(res)
