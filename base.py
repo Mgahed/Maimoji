@@ -34,7 +34,27 @@ Migrate(app,db)
 def index():
     return render_template('index.html')
 
+##################signUp########################
+@app.route('/signup',methods=['GET','POST'])
+def signup():
+    if request.method == "POST":
+        fn = request.form['FN']
+        ln = request.form['LN']
+        mail = request.form['mail']
+        number = request.form['snum']
+        Password = request.form['spass']
+        usersignup = pgdaofact.getuserdao()
+        user1=userr(fn,ln,mail,number,Password)
+        res = usersignup.insertuser(user1)
+        if res == True:
+            return "Signup success"
+        else:
+            return "Not Signedup, some info already used"
+    else:
+        return redirect('/')
 
+
+##################home after login########################
 @app.route('/home',methods=['GET','POST'])
 def NormalLogin():
     active = 'home'
@@ -49,9 +69,11 @@ def NormalLogin():
             return render_template('home.html',active=active)
         else:
             return "Not logged in"
+    else:
+        return redirect('/')
 
 def GmailLogin():
-    active = 'home'
+    # active = 'home'
 
     return render_template('home.html')
 

@@ -24,7 +24,7 @@
         <form id="login" action="{{url_for('NormalLogin')}}" method="post">
 
           <div class="inputBox">
-              <input type="text" name="lnum" required>
+              <input type="number" name="lnum" required>
               <label>Mobile Number</label>
           </div>
           <div class="inputBox">
@@ -38,7 +38,7 @@
           </button>
         </form>
         <!-- start The First Form Login-->
-        <form id="signUp" action="index.html" method="post">
+        <form id="signUp" action="{{url_for('signup')}}" method="post">
 
           <div class="inputBox">
               <input type="text" name="FN" required>
@@ -53,7 +53,7 @@
               <label>E-Mail</label>
         </div>
         <div class="inputBox">
-              <input type="text" name="snum" required>
+              <input type="number" name="snum" required>
               <label>Whats App Number</label>
         </div>
         <div class="inputBox">
