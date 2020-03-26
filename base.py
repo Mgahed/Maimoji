@@ -1,8 +1,12 @@
 import sys
 import os
+from flask_login import logout_user
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import *
+from flask_dance.contrib.google import make_google_blueprint, google
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
+os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 
 basdirr = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdirr+'/DAO')
@@ -24,7 +28,13 @@ Migrate(app,db)
 ####################################
 
 
-
+blueprint = make_google_blueprint(
+    client_id="363930748063-th4rn1gu8o4h5ubbcinhejdbr55vlcrf.apps.googleusercontent.com",
+    client_secret="7Bb1mp4Y80i1qoXsX9P6zfQf",
+    offline=True,
+    scope=["profile", "email"]
+)
+app.register_blueprint(blueprint, url_prefix="/login")
 
 ####################################
 ### views functions and routing ###
@@ -72,10 +82,33 @@ def NormalLogin():
     else:
         return redirect('/')
 
+#####################Gmail######################
+@app.route('/homee')
 def GmailLogin():
-    # active = 'home'
-
-    return render_template('home.html')
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+    if google.authorized:
+        resp = google.get("/oauth2/v2/userinfo")
+        assert resp.ok
+        fn = resp.json()["given_name"]
+        ln = resp.json()["family_name"]
+        mail = resp.json()["email"]
+        number = resp.json()["id"]
+        usersignup = pgdaofact.getuserdao()
+        user1=userr(fn,ln,mail,number,'auth')
+        res = usersignup.insertuser(user1)
+        if res == True:
+            return redirect('/homee')
+        else:
+            pas='auth'
+            userloginn = pgdaofact.getuserdao()
+            res2 = userloginn.logintuser(number,pas)
+            # print(res)
+            # print(number)
+            if res2[0] == True:
+                session['userlogedin'] = res[1]
+                return render_template('home.html',active=active)
+            return "done auth"
 
 
 ##############404 not found####################
