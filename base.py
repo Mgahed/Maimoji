@@ -90,25 +90,29 @@ def GmailLogin():
     if google.authorized:
         resp = google.get("/oauth2/v2/userinfo")
         assert resp.ok
-        fn = resp.json()["given_name"]
-        ln = resp.json()["family_name"]
-        mail = resp.json()["email"]
-        number = resp.json()["id"]
-        usersignup = pgdaofact.getuserdao()
-        user1=userr(fn,ln,mail,number,'auth')
-        res = usersignup.insertuser(user1)
-        if res == True:
-            return redirect('/homee')
+        userloginn = pgdaofact.getuserdao()
+        id = resp.json()["id"]
+        pas = "authentt"
+        res2 = userloginn.logintuser(id,pas)
+        # print(res)
+        # print(id)
+        # print(pas)
+        if res2[0] == True:
+            session['userlogedin'] = res2[1]
+            return render_template('home.html')
         else:
-            pas='auth'
-            userloginn = pgdaofact.getuserdao()
-            res2 = userloginn.logintuser(number,pas)
-            # print(res)
-            # print(number)
-            if res2[0] == True:
-                session['userlogedin'] = res[1]
-                return render_template('home.html',active=active)
-            return "done auth"
+            fn = resp.json()["given_name"]
+            ln = resp.json()["family_name"]
+            mail = resp.json()["email"]
+            id = resp.json()["id"]
+            pas = "authentt"
+            usersignup = pgdaofact.getuserdao()
+            user1=userr(fn,ln,mail,id,pas)
+            res = usersignup.insertuser(user1)
+            if res == True:
+                return redirect('/homee')
+
+            return "<center><h1>Something Wrong</h1></center>"
 
 
 ##############404 not found####################
