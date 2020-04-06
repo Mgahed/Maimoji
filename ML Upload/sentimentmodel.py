@@ -9,6 +9,8 @@ from sklearn import naive_bayes
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from textblob import TextBlob
 
 df = pd.read_csv("training.txt",sep='\t', names=['liked','txt'])
 
@@ -23,10 +25,16 @@ X_train, X_test, y_train, y_test = train_test_split(x,y, random_state=42)
 clf = naive_bayes.MultinomialNB()
 clf.fit(X_train, y_train)
 
-reviews_array = np.array(["the movie was good but the book was bad"])
-reviews_vector = vectorizer.transform(reviews_array)
+input_text = input("Enter text: ")
 
-prediction = clf.predict(reviews_vector)
-print (prediction) 
-print (accuracy_score(y_test, clf.predict_proba(X_test)[:,1]))
+blob = TextBlob(input_text)
 
+
+if blob.subjectivity <= 0.5:
+    print("0.5")
+else :
+    reviews_array = np.array([input_text])
+    reviews_vector = vectorizer.transform(reviews_array)
+
+    prediction = clf.predict(reviews_vector)
+    print (prediction)
