@@ -32,12 +32,11 @@ class pguserdao(userdao):
             return False
 
     def logintuser(self,wnum,pas):
-        Whats = wnum
-        Password = pas
-        # print(Whats)
+        print(wnum)
+        print(pas)
         # print("########################################")
         try:
-            userlgin = userr.query.filter_by(WhatsAppNumber=Whats).filter_by(Password=Password).first()
+            userlgin = userr.query.filter_by(WhatsAppNumber=wnum).filter_by(Password=pas).first()
         # print(userlgin.userID)
             return True,userlgin.firstName
         except:
