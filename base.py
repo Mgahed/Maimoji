@@ -64,10 +64,9 @@ def signup():
         return redirect('/')
 
 
-##################home after login########################
-@app.route('/home',methods=['GET','POST'])
+##################login########################
+@app.route('/login',methods=['GET','POST'])
 def NormalLogin():
-    active = 'home'
     if request.method == "POST":
         number = request.form['lnum']
         Password = request.form['lpass']
@@ -76,7 +75,7 @@ def NormalLogin():
         # print(res)
         if res[0] == True:
             session['userlogedin'] = res[1]
-            return render_template('home.html',active=active)
+            return redirect('/home')
         else:
             return "Not logged in"
     else:
@@ -99,7 +98,7 @@ def GmailLogin():
         # print(pas)
         if res2[0] == True:
             session['userlogedin'] = res2[1]
-            return render_template('home.html')
+            return redirect('/home')
         else:
             fn = resp.json()["given_name"]
             ln = resp.json()["family_name"]
@@ -113,6 +112,13 @@ def GmailLogin():
                 return redirect('/homee')
 
             return "<center><h1>Something Wrong</h1></center>"
+
+##############home####################
+@app.route('/home')
+def home():
+    active = 'home'
+    return render_template('home.html',active=active)
+
 
 
 ##############404 not found####################

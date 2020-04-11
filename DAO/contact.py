@@ -7,6 +7,12 @@ basdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdir+'../')
 from base import *
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+Migrate(app,db)
+
 class contact(db.Model):
 
     contactID = db.Column(db.Integer,primary_key=True)
