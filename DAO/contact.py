@@ -5,7 +5,7 @@ from flask_migrate import *
 
 basdir = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdir+'../')
-from base import *
+from app import *
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basdir,'maimoji.db')
