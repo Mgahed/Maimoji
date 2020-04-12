@@ -55,7 +55,7 @@ def signup():
         number = request.form['snum']
         Password = request.form['spass']
         usersignup = pgdaofact.getuserdao()
-        user1=userr(fn,ln,mail,number,Password)
+        user1=userr(1,fn,ln,mail,number,Password)
         res = usersignup.insertuser(user1)
         if res == True:
             return "Signup success"
@@ -83,7 +83,7 @@ def NormalLogin():
         return redirect('/')
 
 #####################Gmail######################
-@app.route('/homee')
+@app.route('/GmailLogin')
 def GmailLogin():
     if not google.authorized:
         return redirect(url_for("google.login"))
@@ -107,10 +107,10 @@ def GmailLogin():
             id = resp.json()["id"]
             pas = "authentt"
             usersignup = pgdaofact.getuserdao()
-            user1=userr(fn,ln,mail,id,pas)
+            user1=userr(1,fn,ln,mail,id,pas)
             res = usersignup.insertuser(user1)
             if res == True:
-                return redirect('/homee')
+                return redirect('/GmailLogin')
 
             return "<center><h1>Something Wrong</h1></center>"
 

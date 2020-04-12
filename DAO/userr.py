@@ -22,13 +22,16 @@ class userr(db.Model):
     WhatsAppNumber = db.Column(db.Integer)
     Password = db.Column(db.Text)
 
-    def __init__(self, firstName, lastName, mail, WhatsAppNumber, Password):
+    def __init__(self, userID, firstName, lastName, mail, WhatsAppNumber, Password):
+        self.userID = userID
         self.firstName = firstName
         self.lastName = lastName
         self.mail = mail
         self.WhatsAppNumber = WhatsAppNumber
         self.Password = Password
 
+    def getuserID(self):
+        return self.userID
 
     def getFN(self):
         return self.firstName

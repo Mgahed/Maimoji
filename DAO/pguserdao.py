@@ -9,14 +9,19 @@ class pguserdao(userdao):
         mail = user.getMail()
         WhatsAppNumber = user.getWnum()
         Password = user.getPassword()
-
         try:
-            newuser = userr(firstName,lastName,mail,WhatsAppNumber,Password)
-            db.session.add(newuser)
-            db.session.commit()
-            return True
+            lastID = db.session.query(userr.userID).all()
+            userID = lastID[len(tryy)-1][0]+1
         except:
-            return False
+            userID = 1
+
+        # try:
+        newuser = userr(userID,firstName,lastName,mail,WhatsAppNumber,Password)
+        db.session.add(newuser)
+        db.session.commit()
+        return True
+        # except:
+        #     return False
 
     def getuser(self,usertext,choice):
         try:
