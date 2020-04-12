@@ -11,7 +11,7 @@ class pguserdao(userdao):
         Password = user.getPassword()
         try:
             lastID = db.session.query(userr.userID).all()
-            userID = lastID[len(tryy)-1][0]+1
+            userID = lastID[len(lastID)-1][0]+1
         except:
             userID = 1
 
@@ -37,8 +37,8 @@ class pguserdao(userdao):
             return False
 
     def logintuser(self,wnum,pas):
-        print(wnum)
-        print(pas)
+        # print(wnum)
+        # print(pas)
         # print("########################################")
         try:
             userlgin = userr.query.filter_by(WhatsAppNumber=wnum).filter_by(Password=pas).first()
