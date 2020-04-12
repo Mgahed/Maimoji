@@ -8,8 +8,8 @@ sys.path.insert(1, basdir+'../')
 from app import *
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://awqyourp:Y_E64FBbz-0cmsRjHGLqWPOUZQWwqnFJ@drona.db.elephantsql.com:5432/awqyourp'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://awqyourp:Y_E64FBbz-0cmsRjHGLqWPOUZQWwqnFJ@drona.db.elephantsql.com:5432/awqyourp'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app,db)
 
