@@ -1,7 +1,0 @@
-wordnet
-pros_cons
-reuters
-punkt
-brown
-wordnet
-stopwords
