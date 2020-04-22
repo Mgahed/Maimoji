@@ -1,9 +1,9 @@
-# import nltk
-# nltk.download('stopwords')
+import nltk
+nltk.download('stopwords')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
-# from nltk.corpus import stopwords
+from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import naive_bayes
 from sklearn.metrics import roc_auc_score
