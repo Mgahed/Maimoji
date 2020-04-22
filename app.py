@@ -1,6 +1,6 @@
 import nltk
 nltk.download('stopwords')
-nltk.data.path.append('../nltk_data/')
+nltk.data.path.append('nltk_data/')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
