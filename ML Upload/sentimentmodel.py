@@ -1,4 +1,5 @@
 import nltk
+nltk.download('stopwords')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
@@ -10,6 +11,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from textblob import TextBlob
+import os
+import sys
+basdir = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(1, basdir+'../')
+from app import *
 
 def ftblob(text):
 
