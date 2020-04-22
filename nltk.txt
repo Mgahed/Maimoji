@@ -4,7 +4,4 @@ reuters
 punkt
 brown
 wordnet
-averaged_perceptron_tagger
-conll2000
-movie_reviews
 stopwords

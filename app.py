@@ -1,3 +1,10 @@
+import nltk
+nltk.download('stopwords')
+nltk.data.path.append('../nltk_data/')
+from sklearn.model_selection import cross_validate
+import pandas as pd
+import numpy as np
+from nltk.corpus import stopwords
 import sys
 import os
 from flask_login import logout_user
