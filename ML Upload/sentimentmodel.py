@@ -1,5 +1,5 @@
-import nltk
-#nltk.download('stopwords')
+# import nltk
+# nltk.download('stopwords')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
@@ -45,4 +45,4 @@ def ftblob(text):
 
         prediction = clf.predict(reviews_vector)
         return prediction
-print(ftblob("good"))
+# print(ftblob("good"))
