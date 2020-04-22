@@ -12,6 +12,10 @@ basdirr = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdirr+'/DAO')
 from  pgdaofact import *
 
+sys.path.insert(1, basdirr+'/ML Upload')
+from sentimentmodel import *
+
+
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mykey'
@@ -120,6 +124,17 @@ def home():
     active = 'home'
     return render_template('home.html',active=active)
 
+
+##################Messsage###################
+
+@app.route('/message',methods=['GET','POST'])
+def message():
+
+    sent = ''
+    if request.method == "POST":
+        text = request.form['txt']
+        sent = ftblob(text)
+    return render_template('message.html',sent=sent)
 
 
 ##############404 not found####################
