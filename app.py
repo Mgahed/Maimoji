@@ -1,5 +1,3 @@
-import nltk
-nltk.download('stopwords')
 import sys
 import os
 from flask_login import logout_user

@@ -1,5 +1,4 @@
 import nltk
-nltk.download('stopwords')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
