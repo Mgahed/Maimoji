@@ -12,8 +12,8 @@ basdirr = os.path.abspath(os.path.dirname(__file__))
 sys.path.insert(1, basdirr+'/DAO')
 from  pgdaofact import *
 
-# sys.path.insert(1, basdirr+'/ML Upload')
-# from sentimentmodel import *
+sys.path.insert(1, basdirr+'/MLUpload')
+from sentimentmodel import *
 
 
 app = Flask(__name__)
