@@ -134,6 +134,12 @@ def message():
     if request.method == "POST":
         text = request.form['txt']
         sent = ftblob(text)
+        if sent == '0.5':
+            sent = "Nutral"
+        elif sent[0] == 0:
+            sent = 'Negative'
+        else:
+            sent = 'Positive'
     return render_template('message.html',sent=sent)
 
 

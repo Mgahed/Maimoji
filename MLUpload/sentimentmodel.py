@@ -38,11 +38,12 @@ def ftblob(text):
 
 
     if blob.subjectivity <= 0.5:
-        print("0.5")
+        # print("0.5")
+        return '0.5'
     else :
         reviews_array = np.array([text])
         reviews_vector = vectorizer.transform(reviews_array)
 
         prediction = clf.predict(reviews_vector)
         return prediction
-print(ftblob("good"))
+print(ftblob("fine"))
