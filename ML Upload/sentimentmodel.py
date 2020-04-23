@@ -11,11 +11,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from textblob import TextBlob
-# import os
-# import sys
-# basdir = os.path.abspath(os.path.dirname(__file__))
-# sys.path.insert(1, basdir+'../')
-# from app import *
+import os
+import sys
+basdir = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(1, basdir+'../')
+from app import *
 
 def ftblob(text):
 
@@ -45,4 +45,4 @@ def ftblob(text):
 
         prediction = clf.predict(reviews_vector)
         return prediction
-# print(ftblob("good"))
+print(ftblob("good"))
