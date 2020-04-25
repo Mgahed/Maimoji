@@ -7,7 +7,8 @@ from pgdaofact import *
 
 app = Flask(__name__)
 
-aaa = pgdaofact.getmsgdao()
+# aaa = pgdaofact.getmsgdao()
+aaa  = pgdaofact.getcontactdao()
 
 # fn = input("firstName ")
 # ln = input("lastName ")
@@ -17,10 +18,19 @@ number = input("enter the user ID ")
 # user1=userr(fn,ln,mail,number,Password)
 
 # res = aaa.insertuser(user1)
-# res = aaa.getcontacts(number)
+res = aaa.getcontacts(number)
 
 # choice = "mail"
 # choice = 'Date'
-res = aaa.getmsg(number)
+# res = aaa.getmsg(number)
+# cont = []
+bbb = pgdaofact.getuserdao()
+print(len(res[1]))
+for i in range(len(res[1])):
+    cont = res[1][i][0]
+    print(cont)
+    print(bbb.getuserbyid(cont))
 
-print(res)
+
+
+# print(cont)

@@ -8,5 +8,8 @@ class userdao:
     def getuser():
         pass
 
+    def getuserbyid():
+        pass
+
     def logintuser():
         pass

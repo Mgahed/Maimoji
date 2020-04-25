@@ -19,12 +19,12 @@ aaa = pgdaofact.getuserdao()
 
 # res = aaa.insertuser(user1)
 # res = aaa.logintuser(number,Password)
-tryy=db.session.query(userr.userID).all()
-print(tryy[len(tryy)-1][0])
+# tryy=db.session.query(userr.userID).all()
+# print(tryy[len(tryy)-1][0])
 # print(tryy[0]+5)
 
 # choice = "mail"
 # choice = 'number'
 # res = aaa.getuser(number,choice)
-
-# print(res)
+res = aaa.getuserbyid()
+print(res)

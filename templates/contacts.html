@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <center>
+
+      {% block foo %}
+      <ul>
+      {% for i in res %}
+
+        <li>{{i[0]}}</li>
+
+      {% endfor %}
+    </ul>
+
+      {% endblock %}
+
+
+    </center>
+  </body>
+</html>
