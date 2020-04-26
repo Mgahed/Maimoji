@@ -136,7 +136,13 @@ def Contacts():
         cont = res[i][0]
         contact.append(bbb.getuserbyid(cont))
     # return contact
-    return render_template('contacts.html',contact=contact)
+    if(contact[i] != False):
+        try:
+            return render_template('contacts.html',contact=contact)
+        except:
+            return "<center><h1>Error</h1></center>"
+    else:
+        return "<center><h1>Error</h1></center>"
 
 ##################Messsage###################
 

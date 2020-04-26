@@ -41,6 +41,7 @@ class pgcontactdao(contactdao):
 
         try:
             getcontt = contact.query.filter_by(userID1=userID1).with_entities(contact.userID2).all()
+            db.session.remove()
             return getcontt
 
         except:
