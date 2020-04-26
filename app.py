@@ -128,12 +128,15 @@ def home():
 @app.route('/contacts')
 def Contacts():
     aaa  = pgdaofact.getcontactdao()
+    bbb = pgdaofact.getuserdao()
     res = aaa.getcontacts(1)
     # print(len(res[1]))
-    # for i in range(len(res[1])):
-    #     print(res[1][i][0])
-
-    return render_template('contacts.html',res=res[1])
+    contact = []
+    for i in range(len(res)):
+        cont = res[i][0]
+        contact.append(bbb.getuserbyid(cont))
+    # return contact
+    return render_template('contacts.html',contact=contact)
 
 ##################Messsage###################
 

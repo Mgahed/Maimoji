@@ -26,5 +26,5 @@ aaa = pgdaofact.getuserdao()
 # choice = "mail"
 # choice = 'number'
 # res = aaa.getuser(number,choice)
-res = aaa.getuserbyid()
+res = aaa.getuserbyid(1)
 print(res)

@@ -23,13 +23,12 @@ res = aaa.getcontacts(number)
 # choice = "mail"
 # choice = 'Date'
 # res = aaa.getmsg(number)
-# cont = []
+cont = []
 bbb = pgdaofact.getuserdao()
-print(len(res[1]))
-for i in range(len(res[1])):
-    cont = res[1][i][0]
+print(len(res))
+for i in range(len(res)):
+    cont = res[i][0]
     print(cont)
-    print(bbb.getuserbyid(cont))
 
 
 

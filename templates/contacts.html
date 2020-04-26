@@ -5,20 +5,17 @@
     <title></title>
   </head>
   <body>
-    <center>
 
       {% block foo %}
       <ul>
-      {% for i in res %}
+      {% for i in contact %}
 
-        <li>{{i[0]}}</li>
+        <h4><li>{{i}}</li></h4><br>
 
       {% endfor %}
     </ul>
 
       {% endblock %}
 
-
-    </center>
   </body>
 </html>

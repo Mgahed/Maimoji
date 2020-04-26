@@ -36,13 +36,14 @@ class pguserdao(userdao):
         except:
             return False
 
-        def getuserbyid(self,idd):
-            try:
-                getauserbyid = userr.query.filter_by(userID=idd)
-                # print(userlgin.userID)
-                return True,getauserbyid.userID
-            except:
-                return False
+    def getuserbyid(self,idd):
+        try:
+            getauserbyid = userr.query.filter_by(userID=idd).first()
+            # print(userlgin.userID)
+            name = getauserbyid.firstName + " " + getauserbyid.lastName
+            return name
+        except:
+            return False
 
     def logintuser(self,wnum,pas):
         # print(wnum)
