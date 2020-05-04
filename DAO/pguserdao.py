@@ -19,6 +19,7 @@ class pguserdao(userdao):
         newuser = userr(userID,firstName,lastName,mail,WhatsAppNumber,Password)
         db.session.add(newuser)
         db.session.commit()
+        db.session.remove()
         return True
         # except:
         #     return False
@@ -32,6 +33,7 @@ class pguserdao(userdao):
             else:
                 getauser = userr.query.filter_by(WhatsAppNumber=usertext).first()
                 # print(userlgin.userID)
+                db.session.remove()
                 return True,getauser.userID
         except:
             return False
@@ -41,7 +43,10 @@ class pguserdao(userdao):
             getauserbyid = userr.query.filter_by(userID=idd).first()
             # print(userlgin.userID)
             name = getauserbyid.firstName + " " + getauserbyid.lastName
-            return name
+            number = getauserbyid.WhatsAppNumber
+            mail = getauserbyid.mail
+            db.session.remove()
+            return name, number, mail
         except:
             return False
 
@@ -52,6 +57,7 @@ class pguserdao(userdao):
         try:
             userlgin = userr.query.filter_by(WhatsAppNumber=wnum).filter_by(Password=pas).first()
         # print(userlgin.userID)
-            return True,userlgin.firstName
+            db.session.remove()
+            return True,userlgin.userID
         except:
             return False,False

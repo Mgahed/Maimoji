@@ -134,7 +134,8 @@ def Contacts():
     contact = []
     for i in range(len(res)):
         cont = res[i][0]
-        contact.append(bbb.getuserbyid(cont))
+        userreturned = bbb.getuserbyid(cont)
+        contact.append(userreturned[0])
     # return contact
     if(contact[i] != False):
         try:
@@ -160,6 +161,17 @@ def message():
         else:
             sent = 'Positive'
     return render_template('message.html',sent=sent)
+
+##############user profile####################
+@app.route('/userprofile',methods=['GET','POST'])
+def userprofile():
+    userid = session['userlogedin']
+    bbb = pgdaofact.getuserdao()
+    userinfo = bbb.getuserbyid(userid)
+    username = userinfo[0]
+    usernumber = userinfo[1]
+    usermail = userinfo[2]
+    return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
 
 
 ##############404 not found####################

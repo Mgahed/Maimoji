@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <center>
+      <img width="120" height="125" src="{{ url_for('static', filename='images/profile.png') }}">
+    </center>
+    {% block foo %}
+    <ul>
+      <h4><li>Name: {{username}}</li></h4><br>
+      <h4><li>Number: {{usernumber}}</li></h4><br>
+      <h4><li>Mail: {{usermail}}</li></h4><br>
+  </ul>
+
+    {% endblock %}
+  </body>
+</html>
