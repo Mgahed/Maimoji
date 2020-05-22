@@ -8,7 +8,7 @@ from pgdaofact import *
 
 app = Flask(__name__)
 
-aaa = pgdaofact.getuserdao()
+# aaa = pgdaofact.getuserdao()
 
 # fn = input("firstName ")
 # ln = input("lastName ")
@@ -26,5 +26,12 @@ aaa = pgdaofact.getuserdao()
 # choice = "mail"
 # choice = 'number'
 # res = aaa.getuser(number,choice)
-res = aaa.getuserbyid(1)
-print(res)
+# res = aaa.getuserbyid(1)
+# print(res)
+
+
+#############msg####################
+bbb = pgdaofact.getmsgdao()
+msg1=msg(1,1,2,"try","2020")
+resmsg = bbb.sendmsg(msg1)
+print(resmsg)

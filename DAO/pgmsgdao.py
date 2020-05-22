@@ -3,14 +3,20 @@ from msgdao import *
 from msg import *
 class pgmsgdao(msgdao):
 
-    def sendmsg(self,user:userr,msg:msg):
-        userID1 = msg.getsender()
-        userID2 = msg.getreceiver()
-        msgContent = msg.getcontent()
-        msgDate = msg.getdate()
+    def sendmsg(self,msgg:msg):
+        userID1 = msgg.getsender()
+        userID2 = msgg.getreceiver()
+        msgContent = msgg.getmsgcontent()
+        msgDate = msgg.getmsgdate()
 
         try:
-            newmsg= msg(userID1,userID2,msgcontent,msgDate)
+            lastID = db.session.query(msg.msgID).all()
+            msgID = lastID[len(lastID)-1][0]+1
+        except:
+            msgID = 1
+
+        try:
+            newmsg= msg(msgID,userID1,userID2,msgContent,msgDate)
             db.session.add(newmsg)
             db.session.commit()
             return True

@@ -46,4 +46,4 @@ def ftblob(text):
 
         prediction = clf.predict(reviews_vector)
         return prediction
-print(ftblob("fine"))
+# print(ftblob("fine"))

@@ -21,11 +21,12 @@ class msg(db.Model):
     msgContent = db.Column(db.Text)
     msgDate = db.Column(db.Text)
 
-    def __init__(self, userID1, userID2, msgContent, msgDate):
-        self.__userID1=userID1
-        self.__userID2=userID2
-        self.__msgContent=msgContent
-        self.__msgDate=msgDate
+    def __init__(self, msgID, userID1, userID2, msgContent, msgDate):
+        self.msgID=msgID
+        self.userID1=userID1
+        self.userID2=userID2
+        self.msgContent=msgContent
+        self.msgDate=msgDate
 
 ############################################
     def getsender(self):
