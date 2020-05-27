@@ -162,6 +162,18 @@ def message():
             sent = 'Positive'
     return render_template('message.html',sent=sent)
 
+##############send msg####################
+@app.route('/sendmessage',methods=['GET','POST'])
+def sendmessage():
+    getmsgdao = pgdaofact.getmsgdao()
+    sender = session['userlogedin']
+    msg1=msg(1,sender,2,"try","2020")
+    resmsg = getmsgdao.sendmsg(msg1)
+    if resmsg:
+        return "Done"
+    else:
+        return "Somethig Wrong"
+
 ##############user profile####################
 @app.route('/userprofile',methods=['GET','POST'])
 def userprofile():
