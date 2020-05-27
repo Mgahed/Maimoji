@@ -23,10 +23,20 @@ class pgmsgdao(msgdao):
         except:
             return False
 
-    def getmsg(self,userID1):
+    def getmsg(self,userID1,userID2):
         try:
-            getms = msg.query.filter_by(userID1=userID1).with_entities(msg.msgContent,msg.msgDate).all()
-            return True,getms
+            msglist = []
+            datelist = []
+            senderlist = []
+            reclist = []
+            getms = msg.query.filter(msg.userID1==userID1,msg.userID2==userID2).all()
+            for value in getms:
+                # print(value)
+                msglist.append(value.msgContent)
+                datelist.append(value.msgDate)
+                senderlist.append(value.userID1)
+                reclist.append(value.userID2)
+            return msglist, datelist, senderlist, reclist
 
         except:
             return False

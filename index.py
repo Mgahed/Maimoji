@@ -31,7 +31,11 @@ app = Flask(__name__)
 
 
 #############msg####################
+# bbb = pgdaofact.getmsgdao()
+# msg1=msg(1,1,2,"try","2020")
+# resmsg = bbb.sendmsg(msg1)
+# print(resmsg)
+####
 bbb = pgdaofact.getmsgdao()
-msg1=msg(1,1,2,"try","2020")
-resmsg = bbb.sendmsg(msg1)
+resmsg = bbb.getmsg(1,2)
 print(resmsg)
