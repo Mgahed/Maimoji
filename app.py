@@ -4,6 +4,7 @@ from flask_login import logout_user
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import *
+from flask_restful import Resource,Api,reqparse
 from flask_dance.contrib.google import make_google_blueprint, google
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
@@ -17,6 +18,7 @@ from sentimentmodel import *
 
 
 app = Flask(__name__)
+api = Api(app)
 
 app.config['SECRET_KEY'] = 'mykey'
 
@@ -44,6 +46,18 @@ app.register_blueprint(blueprint, url_prefix="/login")
 ####################################
 ### views functions and routing ###
 ###################################
+
+class test(Resource):
+    def get(self):
+        return TODOS
+
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('task')
+        args = parser.parse_args()
+        TODOS = {'task': args['task']}
+        return TODOS, 201
+api.add_resource(test, '/test')
 
 @app.route('/')
 def index():
