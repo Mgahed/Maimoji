@@ -5,6 +5,7 @@ from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import *
 from flask_restful import Resource,Api,reqparse
+from flask_cors import CORS
 from flask_dance.contrib.google import make_google_blueprint, google
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
@@ -32,6 +33,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
 Migrate(app,db)
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 ####################################
 
 
@@ -57,7 +59,7 @@ class test(Resource):
         args = parser.parse_args()
         TODOS = {'task': args['task']}
         return TODOS, 201
-api.add_resource(test, '/test')
+api.add_resource(test, '/api/test')
 
 @app.route('/')
 def index():
