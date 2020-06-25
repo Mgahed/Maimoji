@@ -12,39 +12,45 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from textblob import TextBlob
 
-df = pd.read_csv("Training.txt",sep='\t', names=['liked','txt'])
+def ftblob(text):
 
-stopset = set(stopwords.words('english'))
+    df = pd.read_csv("Training.txt",sep='\t', names=['liked','txt'])
 
-vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stopset)
-y=df.liked
-x=vectorizer.fit_transform(df.txt)
+    stopset = set(stopwords.words('english'))
 
-X_train, X_test, y_train, y_test = train_test_split(x,y, random_state=42)
+    vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stopset)
+    y=df.liked
+    x=vectorizer.fit_transform(df.txt)
 
-clf = naive_bayes.MultinomialNB()
-clf.fit(X_train, y_train)
+    X_train, X_test, y_train, y_test = train_test_split(x,y, random_state=42)
 
-input_text = input("Enter text: ")
+    clf = naive_bayes.MultinomialNB()
+    clf.fit(X_train, y_train)
 
-blob = TextBlob(input_text)
+    input_text = text
+
+    blob = TextBlob(input_text)
 
 
-if blob.subjectivity <= 0.5:
-    print("0.5")
-else :
-    reviews_array = np.array([input_text])
-    reviews_vector = vectorizer.transform(reviews_array)
+    if blob.subjectivity <= 0.5:
+        # print("0.5")
+        return 0.5
+    else :
+        reviews_array = np.array([input_text])
+        reviews_vector = vectorizer.transform(reviews_array)
 
-    prediction = clf.predict(reviews_vector)
-    if(input_text.find('not')!=-1):
-      prediction = (-1*prediction)
-      if(prediction ==-1):
-        prediction = 0
-        print(prediction)
-      else:
-        prediction = 1
-        print(prediction)
- 
-    else:
-      print(prediction) 
+        prediction = clf.predict(reviews_vector)
+        if(input_text.find('not')!=-1):
+          prediction = (-1*prediction)
+          if(prediction ==-1):
+            prediction = 0
+            # print(prediction)
+            return prediction
+          else:
+            prediction = 1
+            # print(prediction)
+            return prediction
+
+        else:
+          # print(prediction)
+          return prediction

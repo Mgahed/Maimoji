@@ -172,7 +172,7 @@ def message():
         sent = ftblob(text)
         if sent == '0.5':
             sent = "Nutral"
-        elif sent[0] == 0:
+        elif sent == 0:
             sent = 'Negative'
         else:
             sent = 'Positive'
