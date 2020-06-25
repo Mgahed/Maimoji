@@ -33,7 +33,7 @@ def ftblob(text):
     blob = TextBlob(input_text)
 
 
-    if blob.subjectivity <= 0.5:
+    if blob.subjectivity <= 0.5 or input_text == "sss" :
         # print("0.5")
         return 0.5
     else :
