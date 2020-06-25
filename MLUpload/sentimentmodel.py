@@ -1,5 +1,5 @@
 import nltk
-# nltk.download('stopwords')
+nltk.download('stopwords')
 from sklearn.model_selection import cross_validate
 import pandas as pd
 import numpy as np
@@ -11,39 +11,40 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from textblob import TextBlob
-import os
-import sys
-basdir = os.path.abspath(os.path.dirname(__file__))
-sys.path.insert(1, basdir+'../')
-from app import *
 
-def ftblob(text):
+df = pd.read_csv("Training.txt",sep='\t', names=['liked','txt'])
 
-    df = pd.read_csv("training.txt",sep='\t', names=['liked','txt'])
+stopset = set(stopwords.words('english'))
 
-    stopset = set(stopwords.words('english'))
+vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stopset)
+y=df.liked
+x=vectorizer.fit_transform(df.txt)
 
-    vectorizer = TfidfVectorizer(use_idf=True, lowercase=True, strip_accents='ascii', stop_words=stopset)
-    y=df.liked
-    x=vectorizer.fit_transform(df.txt)
+X_train, X_test, y_train, y_test = train_test_split(x,y, random_state=42)
 
-    X_train, X_test, y_train, y_test = train_test_split(x,y, random_state=42)
+clf = naive_bayes.MultinomialNB()
+clf.fit(X_train, y_train)
 
-    clf = naive_bayes.MultinomialNB()
-    clf.fit(X_train, y_train)
+input_text = input("Enter text: ")
 
-    # input_text = input("Enter text: ")
-
-    blob = TextBlob(text)
+blob = TextBlob(input_text)
 
 
-    if blob.subjectivity <= 0.5:
-        # print("0.5")
-        return '0.5'
-    else :
-        reviews_array = np.array([text])
-        reviews_vector = vectorizer.transform(reviews_array)
+if blob.subjectivity <= 0.5:
+    print("0.5")
+else :
+    reviews_array = np.array([input_text])
+    reviews_vector = vectorizer.transform(reviews_array)
 
-        prediction = clf.predict(reviews_vector)
-        return prediction
-# print(ftblob("fine"))
+    prediction = clf.predict(reviews_vector)
+    if(input_text.find('not')!=-1):
+      prediction = (-1*prediction)
+      if(prediction ==-1):
+        prediction = 0
+        print(prediction)
+      else:
+        prediction = 1
+        print(prediction)
+ 
+    else:
+      print(prediction) 
