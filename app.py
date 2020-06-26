@@ -50,6 +50,8 @@ app.register_blueprint(blueprint, url_prefix="/login")
 ###################################
 
 class test(Resource):
+    def get(self):
+        return {'title': 'klkz 7beeby'}
 
     def post(self):
         parser = reqparse.RequestParser()
