@@ -50,15 +50,13 @@ app.register_blueprint(blueprint, url_prefix="/login")
 ###################################
 
 class test(Resource):
-    def get(self):
-        return TODOS
 
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('task')
         args = parser.parse_args()
-        TODOS = {'task': args['task']}
-        return TODOS, 201
+        tryapi = {'task': args['task']}
+        return tryapi
 api.add_resource(test, '/api/test')
 
 @app.route('/')
