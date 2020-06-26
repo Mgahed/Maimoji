@@ -53,9 +53,9 @@ class test(Resource):
 
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('task')
+        parser.add_argument('title')
         args = parser.parse_args()
-        tryapi = {'task': args['task']}
+        tryapi = {'title': args['title']}
         return tryapi
 api.add_resource(test, '/api/test')
 
