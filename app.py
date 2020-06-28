@@ -219,24 +219,13 @@ class chathistory(Resource):
                         "msg"  : [ x for x in resmsg[0] ],
                         "date"  : [ x for x in resmsg[1] ],
                         "sender"  : [ x for x in resmsg[2] ],
-                        "recivers" : [ x for x in resmsg[3] ]
+                        "recivers" : [ x for x in resmsg[3] ],
+                        "current user" : sender
                    }
         return somedict
 
 api.add_resource(chathistory, '/api/chathistory')
-####################
-# @app.route('/chathistory',methods=['GET','POST'])
-# def chathistory():
-#     bbb = pgdaofact.getmsgdao()
-#     resmsg = bbb.getmsg(1,2)
-#     somedict = {
-#                     "msg"  : [ x for x in resmsg[0] ],
-#                     "date"  : [ x for x in resmsg[1] ],
-#                     "sender"  : [ x for x in resmsg[2] ],
-#                     "recivers" : [ x for x in resmsg[3] ]
-#                }
-#     return somedict
-#
+
 
 ##############404 not found####################
 @app.errorhandler(404)
