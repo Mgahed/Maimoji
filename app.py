@@ -3,6 +3,7 @@ import os
 from flask_login import logout_user
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import or_
 from flask_migrate import *
 from flask_restful import Resource,Api,reqparse
 from flask_cors import CORS
@@ -50,15 +51,15 @@ app.register_blueprint(blueprint, url_prefix="/login")
 ###################################
 
 class test(Resource):
-    def get(self):
-        return {'title': 'klkz 7beeby'}
+    # def get(self):
+    #     return tryapi
 
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('title')
         args = parser.parse_args()
-        tryapi = {'title': args['title']}
-        return tryapi
+        return args
+
 api.add_resource(test, '/api/test')
 
 @app.route('/')
@@ -201,6 +202,41 @@ def userprofile():
     usermail = userinfo[2]
     return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
 
+#################
+class chathistory(Resource):
+
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('sender')
+        parser.add_argument('reciver')
+        args = parser.parse_args()
+        sender = args["sender"]
+        reciver = args["reciver"]
+        # return sender
+        bbb = pgdaofact.getmsgdao()
+        resmsg = bbb.getmsg(sender,reciver)
+        somedict = {
+                        "msg"  : [ x for x in resmsg[0] ],
+                        "date"  : [ x for x in resmsg[1] ],
+                        "sender"  : [ x for x in resmsg[2] ],
+                        "recivers" : [ x for x in resmsg[3] ]
+                   }
+        return somedict
+
+api.add_resource(chathistory, '/api/chathistory')
+####################
+# @app.route('/chathistory',methods=['GET','POST'])
+# def chathistory():
+#     bbb = pgdaofact.getmsgdao()
+#     resmsg = bbb.getmsg(1,2)
+#     somedict = {
+#                     "msg"  : [ x for x in resmsg[0] ],
+#                     "date"  : [ x for x in resmsg[1] ],
+#                     "sender"  : [ x for x in resmsg[2] ],
+#                     "recivers" : [ x for x in resmsg[3] ]
+#                }
+#     return somedict
+#
 
 ##############404 not found####################
 @app.errorhandler(404)

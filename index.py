@@ -1,3 +1,4 @@
+import json
 import sys
 import os
 basdir = os.path.abspath(os.path.dirname(__file__))
@@ -39,3 +40,14 @@ app = Flask(__name__)
 bbb = pgdaofact.getmsgdao()
 resmsg = bbb.getmsg(1,2)
 print(resmsg)
+somedict = {
+                "msg"  : [ x for x in resmsg[0] ],
+                "date"  : [ x for x in resmsg[1] ],
+                "sender"  : [ x for x in resmsg[2] ],
+                "recivers" : [ x for x in resmsg[3] ]
+           }
+print(somedict)
+# x = len(resmsg[0])
+# print(x)
+# for value in resmsg:
+#     print(value)

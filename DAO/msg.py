@@ -1,6 +1,7 @@
 import os
 from flask import *
 from flask_sqlalchemy import *
+from sqlalchemy import or_
 from flask_migrate import *
 
 basdir = os.path.abspath(os.path.dirname(__file__))
