@@ -56,13 +56,17 @@ class test(Resource):
         parser = reqparse.RequestParser()
         parser.add_argument('title')
         args = parser.parse_args()
-        return args
+        final = int(args["title"])*2
+        somedict = {
+                        "number" : final
+                   }
+        return somedict
 
-    def get(self):
-        parser = reqparse.RequestParser()
-        parser.add_argument('title')
-        args = parser.parse_args()
-        return args
+    # def get(self):
+    #     parser = reqparse.RequestParser()
+    #     parser.add_argument('title')
+    #     args = parser.parse_args()
+    #     return args
 
 api.add_resource(test, '/api/test')
 
