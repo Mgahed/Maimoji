@@ -51,10 +51,14 @@ app.register_blueprint(blueprint, url_prefix="/login")
 ###################################
 
 class test(Resource):
-    # def get(self):
-    #     return tryapi
 
     def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('title')
+        args = parser.parse_args()
+        return args
+
+    def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('title')
         args = parser.parse_args()
@@ -67,24 +71,33 @@ def index():
     return render_template('index.html')
 
 ##################signUp########################
-@app.route('/signup',methods=['GET','POST'])
-def signup():
-    if request.method == "POST":
-        fn = request.form['FN']
-        ln = request.form['LN']
-        mail = request.form['mail']
-        number = request.form['snum']
-        Password = request.form['spass']
+class signup(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('FN')
+        parser.add_argument('LN')
+        parser.add_argument('mail')
+        parser.add_argument('snum')
+        parser.add_argument('spass')
+        args = parser.parse_args()
+        firstname = args["FN"]
+        lastname = args["LN"]
+        mail = args["mail"]
+        number = args["snum"]
+        Password = args["spass"]
         usersignup = pgdaofact.getuserdao()
-        user1=userr(1,fn,ln,mail,number,Password)
+        user1=userr(1,firstname,lastname,mail,number,Password)
         res = usersignup.insertuser(user1)
         if res == True:
-            return "Signup success"
+            somedict = {
+                            "boolean" : "True"
+                       }
         else:
-            return "Not Signedup, some info already used"
-    else:
-        return redirect('/')
-
+            somedict = {
+                            "boolean" : "False"
+                       }
+        return somedict
+api.add_resource(signup, '/api/signup')
 
 ##################login########################
 @app.route('/login',methods=['GET','POST'])
@@ -202,9 +215,8 @@ def userprofile():
     usermail = userinfo[2]
     return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
 
-#################
+################chathistory###########
 class chathistory(Resource):
-
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('sender')
@@ -212,7 +224,6 @@ class chathistory(Resource):
         args = parser.parse_args()
         sender = args["sender"]
         reciver = args["reciver"]
-        # return sender
         bbb = pgdaofact.getmsgdao()
         resmsg = bbb.getmsg(sender,reciver)
         somedict = {
