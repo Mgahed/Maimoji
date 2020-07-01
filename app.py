@@ -104,22 +104,36 @@ class signup(Resource):
 api.add_resource(signup, '/api/signup')
 
 ##################login########################
-@app.route('/login',methods=['GET','POST'])
-def NormalLogin():
-    if request.method == "POST":
-        number = request.form['lnum']
-        Password = request.form['lpass']
+class login(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('number')
+        parser.add_argument('pass')
+        args = parser.parse_args()
+        number = args["number"]
+        Password = args["pass"]
         userlogin = pgdaofact.getuserdao()
         res = userlogin.logintuser(number,Password)
         # print(res)
         if res[0] == True:
             session['userlogedin'] = res[1]
-            return redirect('/home')
-        else:
-            return "Not logged in"
-    else:
-        return redirect('/')
+            name = res[2]
+            mail = res[3]
+            somedict = {
+                            "boolean" : "True",
+                            "name" : name,
+                            "mail" : mail,
+                            "number" : number
 
+                       }
+            return somedict
+        else:
+            somedict = {
+                            "boolean" : "False"
+
+                       }
+            return somedict
+api.add_resource(login, '/api/login')
 #####################Gmail######################
 @app.route('/GmailLogin')
 def GmailLogin():

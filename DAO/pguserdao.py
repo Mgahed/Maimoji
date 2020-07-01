@@ -58,6 +58,7 @@ class pguserdao(userdao):
             userlgin = userr.query.filter_by(WhatsAppNumber=wnum).filter_by(Password=pas).first()
         # print(userlgin.userID)
             db.session.remove()
-            return True,userlgin.userID
+            name = userlgin.firstName + " " + userlgin.lastName
+            return True,userlgin.userID,name,userlgin.mail
         except:
             return False,False
