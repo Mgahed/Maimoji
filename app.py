@@ -28,7 +28,7 @@ app.config['SECRET_KEY'] = 'mykey'
 ###db section###########
 ########################
 basdir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://awqyourp:Y_E64FBbz-0cmsRjHGLqWPOUZQWwqnFJ@drona.db.elephantsql.com:5432/awqyourp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://awqyourp:ePCWRA1-5xrGQNBdtNqVZKpQmBE96iaZ@drona.db.elephantsql.com:5432/awqyourp'
 #'sqlite:///'+os.path.join(basdir,'DAO/maimoji.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 

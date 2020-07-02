@@ -37,17 +37,21 @@ app = Flask(__name__)
 # resmsg = bbb.sendmsg(msg1)
 # print(resmsg)
 ####
-bbb = pgdaofact.getmsgdao()
-resmsg = bbb.getmsg(1,2)
-print(resmsg)
-somedict = {
-                "msg"  : [ x for x in resmsg[0] ],
-                "date"  : [ x for x in resmsg[1] ],
-                "sender"  : [ x for x in resmsg[2] ],
-                "recivers" : [ x for x in resmsg[3] ]
-           }
-print(somedict)
+# bbb = pgdaofact.getmsgdao()
+# resmsg = bbb.getmsg(1,2)
+# print(resmsg)
+# somedict = {
+#                 "msg"  : [ x for x in resmsg[0] ],
+#                 "date"  : [ x for x in resmsg[1] ],
+#                 "sender"  : [ x for x in resmsg[2] ],
+#                 "recivers" : [ x for x in resmsg[3] ]
+#            }
+# print(somedict)
 # x = len(resmsg[0])
 # print(x)
 # for value in resmsg:
 #     print(value)
+
+usersignup = pgdaofact.getuserdao()
+user1=userr(1,"firstname","lastname","mail","number","Password")
+res = usersignup.insertuser(user1)
