@@ -92,6 +92,7 @@ class signup(Resource):
         usersignup = pgdaofact.getuserdao()
         user1=userr(1,firstname,lastname,mail,number,Password)
         res = usersignup.insertuser(user1)
+        db.session.close_all()
         if res == True:
             somedict = {
                             "boolean" : "True"
