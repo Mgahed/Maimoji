@@ -14,26 +14,27 @@ class pguserdao(userdao):
             userID = lastID[len(lastID)-1][0]+1
         except:
             userID = 1
-
-        # try:
-        newuser = userr(userID,firstName,lastName,mail,WhatsAppNumber,Password)
-        db.session.add(newuser)
-        db.session.commit()
-        db.session.close_all()
-        return True
-        # except:
-        #     return False
+        try:
+            db.session.remove()
+            newuser = userr(userID,firstName,lastName,mail,WhatsAppNumber,Password)
+            db.session.add(newuser)
+            db.session.commit()
+            db.session.remove()
+            return True
+        except:
+            return False
 
     def getuser(self,usertext,choice):
         try:
             if choice == "mail":
                 getauser = userr.query.filter_by(mail=usertext).first()
                 # print(userlgin.userID)
+                db.session.remove()
                 return True,getauser.userID
             else:
                 getauser = userr.query.filter_by(WhatsAppNumber=usertext).first()
                 # print(userlgin.userID)
-                db.session.close_all()
+                db.session.remove()
                 return True,getauser.userID
         except:
             return False
@@ -45,7 +46,7 @@ class pguserdao(userdao):
             name = getauserbyid.firstName + " " + getauserbyid.lastName
             number = getauserbyid.WhatsAppNumber
             mail = getauserbyid.mail
-            db.session.close_all()
+            db.session.remove()
             return name, number, mail
         except:
             return False
@@ -57,7 +58,7 @@ class pguserdao(userdao):
         try:
             userlgin = userr.query.filter_by(WhatsAppNumber=wnum).filter_by(Password=pas).first()
         # print(userlgin.userID)
-            db.session.close_all()
+            db.session.remove()
             name = userlgin.firstName + " " + userlgin.lastName
             return True,userlgin.userID,name,userlgin.mail
         except:
