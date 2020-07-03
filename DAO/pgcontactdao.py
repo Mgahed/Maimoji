@@ -38,11 +38,13 @@ class pgcontactdao(contactdao):
 
     def getcontacts(self,userID1):
 
-
+        contacts = []
         try:
-            getcontt = contact.query.filter_by(userID1=userID1).with_entities(contact.userID2).all()
+            getcontt = contact.query.filter_by(userID1=userID1).all()
             db.session.remove()
-            return getcontt
+            for value in getcontt:
+                contacts.append(value.userID2)
+            return contacts
 
         except:
             return False

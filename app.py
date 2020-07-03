@@ -174,25 +174,33 @@ def home():
     return render_template('home.html',active=active)
 
 ##################Contacts###################
-@app.route('/contacts')
-def Contacts():
-    aaa  = pgdaofact.getcontactdao()
-    bbb = pgdaofact.getuserdao()
-    res = aaa.getcontacts(1)
-    # print(len(res[1]))
-    contact = []
-    for i in range(len(res)):
-        cont = res[i][0]
-        userreturned = bbb.getuserbyid(cont)
-        contact.append(userreturned[0])
-    # return contact
-    if(contact[i] != False):
+class contacts(Resource):
+    def post(self):
         try:
-            return render_template('contacts.html',contact=contact)
+            sessionid = session['userlogedin']
+            aaa  = pgdaofact.getcontactdao()
+            bbb = pgdaofact.getuserdao()
+            res = aaa.getcontacts(sessionid)
+            print(sessionid)
+            contact = []
+            for i in range(len(res)):
+                cont = res[i]
+                userreturned = bbb.getuserbyid(cont)
+                contact.append(userreturned[0])
+            if(contact[i] != False):
+                somedict = {
+                                "boolean" : "True",
+                                "contactid" : res,
+                                "contactname" : contact
+                           }
         except:
-            return "<center><h1>Error</h1></center>"
-    else:
-        return "<center><h1>Error</h1></center>"
+            somedict = {
+                            "boolean" : "False"
+                       }
+
+        return somedict
+api.add_resource(contacts, '/api/contacts')
+
 
 ##################Messsage###################
 

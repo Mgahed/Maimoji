@@ -52,10 +52,20 @@ app = Flask(__name__)
 # for value in resmsg:
 #     print(value)
 
-usersignup = pgdaofact.getuserdao()
-user1=userr(1,"firstname","lastname","mail35","number351","Password")
-res = usersignup.insertuser(user1)
+# usersignup = pgdaofact.getuserdao()
+# user1=userr(1,"firstname","lastname","mail35","number351","Password")
+# res = usersignup.insertuser(user1)
+# print(res)
+# db.session.close_all()
+# # db.session.dispose()
+# print(db)
+aaa  = pgdaofact.getcontactdao()
+bbb = pgdaofact.getuserdao()
+res = aaa.getcontacts(1)
 print(res)
-db.session.close_all()
-# db.session.dispose()
-print(db)
+contact = []
+for i in range(len(res)):
+    cont = res[i]
+    userreturned = bbb.getuserbyid(cont)
+    contact.append(userreturned[0])
+print(contact)
