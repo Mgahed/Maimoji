@@ -229,8 +229,8 @@ def message():
             sent = 'Negative'
         elif sent == 1:
             sent = 'Positive'
-    return "message endpoint"
-    # return render_template('message.html',sent=sent)
+    # return "message endpoint"
+    return render_template('message.html',sent=sent)
 
 ##############send msg####################
 @app.route('/sendmessage',methods=['GET','POST'])
