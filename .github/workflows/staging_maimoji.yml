@@ -31,4 +31,4 @@ jobs:
       with:
         app-name: 'maimoji'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e14f77220dc64df49b564b1dfde71923 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_0337074d215d4d4a97c46a3344a3553d }}
