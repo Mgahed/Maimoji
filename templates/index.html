@@ -14,16 +14,16 @@
         <div class="but-groups">
 
           <div id="btn"></div> <!--This div for the color which deal with cursor-->
-          <button onclick="login()">Login</button>
+          <!-- <button onclick="login()">Login</button> -->
           <button onclick="signUp()">Sign Up</button>
 
         </div>
         <!--<h2>Sign Up</h2>-->
 
         <!-- start The First Form Login-->
-        <form id="login" action="{{url_for('NormalLogin')}}" method="post">
+        <!-- <form id="login" action="{{url_for('NormalLogin')}}" method="post"> -->
 
-          <div class="inputBox">
+          <!-- <div class="inputBox">
               <input type="number" name="lnum" required>
               <label>Mobile Number</label>
           </div>
@@ -32,11 +32,11 @@
                 <label> Password</label>
           </div>
           <input type="submit" name="login-submit" value="Login">
-          <h2>OR</h2>
+          <h2>OR</h2> -->
           <button type="button" id="gmailbtn" name="button">
           <a href="{{ url_for('GmailLogin') }}"><h3><i class="fa fa-google"> </i> Login With Gmail</h3></a>
           </button>
-        </form>
+        <!-- </form> -->
         <!-- start The First Form Login-->
         <form id="signUp" action="{{url_for('signup')}}" method="post">
 
@@ -72,8 +72,8 @@
       </div>
 
       <script>
-        var x = document.getElementById("login"),
-            y = document.getElementById("signUp"),
+        // var x = document.getElementById("login"),
+          var  y = document.getElementById("signUp"),
             l = document.getElementById("container"),
             z = document.getElementById("btn");
 
@@ -86,14 +86,14 @@
           l.style.height = "680px";
 
         }
-        function login() {
-          x.style.left = "0";
-          x.style.position= "relative";
-          y.style.left= "550px";
-          y.style.top= "0";
-          z.style.left = "0";
-          l.style.height = "443px";
-        }
+        // function login() {
+        //   x.style.left = "0";
+        //   x.style.position= "relative";
+        //   y.style.left= "550px";
+        //   y.style.top= "0";
+        //   z.style.left = "0";
+        //   l.style.height = "443px";
+        // }
       </script>
       </body>
 </html>

@@ -18,6 +18,9 @@ from  pgdaofact import *
 sys.path.insert(1, basdirr+'/MLUpload')
 from sentimentmodel import *
 
+sys.path.insert(1, basdirr+'/facerecognition')
+from Test import *
+
 
 app = Flask(__name__)
 api = Api(app)
@@ -40,7 +43,7 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 blueprint = make_google_blueprint(
     client_id="363930748063-th4rn1gu8o4h5ubbcinhejdbr55vlcrf.apps.googleusercontent.com",
-    client_secret="7Bb1mp4Y80i1qoXsX9P6zfQf",
+    client_secret="4fmpuVshFiMS6KqUrx94jcax",
     offline=True,
     scope=["profile", "email"]
 )
@@ -72,7 +75,21 @@ api.add_resource(test, '/api/test')
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    if google.authorized:
+        resp = google.get("/oauth2/v2/userinfo")
+        assert resp.ok, resp.text
+        fn = resp.json()["given_name"]
+        ln = resp.json()["family_name"]
+        mail = resp.json()["email"]
+        id = resp.json()["id"]
+        pas = "authentt"
+        usersignup = pgdaofact.getuserdao()
+        user1=userr(1,fn,ln,mail,id,pas)
+        res = usersignup.insertuser(user1)
+        if res == True:
+            return resp.json()
+        x = "alreadysignedup"
+        return resp.json(),x
 
 ##################signUp########################
 class signup(Resource):
@@ -136,42 +153,30 @@ class login(Resource):
             return somedict
 api.add_resource(login, '/api/login')
 #####################Gmail######################
-@app.route('/GmailLogin')
+@app.route('/login/google')
 def GmailLogin():
     if not google.authorized:
-        return redirect(url_for("google.login"))
-    if google.authorized:
-        resp = google.get("/oauth2/v2/userinfo")
-        assert resp.ok
-        userloginn = pgdaofact.getuserdao()
-        id = resp.json()["id"]
-        pas = "authentt"
-        res2 = userloginn.logintuser(id,pas)
-        # print(res)
-        # print(id)
-        # print(pas)
-        if res2[0] == True:
-            session['userlogedin'] = res2[1]
-            return redirect('/home')
-        else:
-            fn = resp.json()["given_name"]
-            ln = resp.json()["family_name"]
-            mail = resp.json()["email"]
-            id = resp.json()["id"]
-            pas = "authentt"
-            usersignup = pgdaofact.getuserdao()
-            user1=userr(1,fn,ln,mail,id,pas)
-            res = usersignup.insertuser(user1)
-            if res == True:
-                return redirect('/GmailLogin')
+        return  render_template(url_for("google.login"))
+    # if google.authorized:
+    #     resp = google.get("/oauth2/v2/userinfo")
+    #     assert resp.ok
+    #     userloginn = pgdaofact.getuserdao()
+    #     id = resp.json()["id"]
+    #     pas = "authentt"
+    #     res2 = userloginn.logintuser(id,pas)
+    #     # print(res)
+    #     # print(id)
+    #     # print(pas)
+    #     if res2[0] == True:
+    #         session['userlogedin'] = res2[1]
+    #         return resp.json()
+    #     else:
 
-            return "<center><h1>Something Wrong</h1></center>"
 
 ##############home####################
 @app.route('/home')
 def home():
-    active = 'home'
-    return render_template('home.html',active=active)
+    return "hh"
 
 ##################Contacts###################
 class contacts(Resource):
@@ -201,6 +206,13 @@ class contacts(Resource):
         return somedict
 api.add_resource(contacts, '/api/contacts')
 
+##################facerec###################
+@app.route('/facerecognition',methods=['GET','POST'])
+def facerecognition():
+
+        state = facerec()
+        return state
+
 
 ##################Messsage###################
 
@@ -217,7 +229,8 @@ def message():
             sent = 'Negative'
         elif sent == 1:
             sent = 'Positive'
-    return render_template('message.html',sent=sent)
+    return "message endpoint"
+    # return render_template('message.html',sent=sent)
 
 ##############send msg####################
 @app.route('/sendmessage',methods=['GET','POST'])
@@ -240,8 +253,8 @@ def userprofile():
     username = userinfo[0]
     usernumber = userinfo[1]
     usermail = userinfo[2]
-    return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
-
+    # return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
+    return "userprofile endpoint"
 ################chathistory###########
 class chathistory(Resource):
     def post(self):
