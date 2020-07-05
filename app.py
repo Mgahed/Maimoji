@@ -18,8 +18,8 @@ from  pgdaofact import *
 sys.path.insert(1, basdirr+'/MLUpload')
 from sentimentmodel import *
 
-sys.path.insert(1, basdirr+'/facerecognition')
-from Test import *
+# sys.path.insert(1, basdirr+'/facerecognition')
+# from Test import *
 
 
 app = Flask(__name__)
@@ -75,21 +75,22 @@ api.add_resource(test, '/api/test')
 
 @app.route('/')
 def index():
-    if google.authorized:
-        resp = google.get("/oauth2/v2/userinfo")
-        assert resp.ok, resp.text
-        fn = resp.json()["given_name"]
-        ln = resp.json()["family_name"]
-        mail = resp.json()["email"]
-        id = resp.json()["id"]
-        pas = "authentt"
-        usersignup = pgdaofact.getuserdao()
-        user1=userr(1,fn,ln,mail,id,pas)
-        res = usersignup.insertuser(user1)
-        if res == True:
-            return resp.json()
-        x = "alreadysignedup"
-        return resp.json(),x
+    return "<center><h1>Hello This is Mgahed</h1></center>"
+    # if google.authorized:
+    #     resp = google.get("/oauth2/v2/userinfo")
+    #     assert resp.ok, resp.text
+    #     fn = resp.json()["given_name"]
+    #     ln = resp.json()["family_name"]
+    #     mail = resp.json()["email"]
+    #     id = resp.json()["id"]
+    #     pas = "authentt"
+    #     usersignup = pgdaofact.getuserdao()
+    #     user1=userr(1,fn,ln,mail,id,pas)
+    #     res = usersignup.insertuser(user1)
+    #     if res == True:
+    #         return resp.json()
+    #     x = "alreadysignedup"
+    #     return resp.json()
 
 ##################signUp########################
 class signup(Resource):
@@ -157,20 +158,6 @@ api.add_resource(login, '/api/login')
 def GmailLogin():
     if not google.authorized:
         return  render_template(url_for("google.login"))
-    # if google.authorized:
-    #     resp = google.get("/oauth2/v2/userinfo")
-    #     assert resp.ok
-    #     userloginn = pgdaofact.getuserdao()
-    #     id = resp.json()["id"]
-    #     pas = "authentt"
-    #     res2 = userloginn.logintuser(id,pas)
-    #     # print(res)
-    #     # print(id)
-    #     # print(pas)
-    #     if res2[0] == True:
-    #         session['userlogedin'] = res2[1]
-    #         return resp.json()
-    #     else:
 
 
 ##############home####################
@@ -207,11 +194,11 @@ class contacts(Resource):
 api.add_resource(contacts, '/api/contacts')
 
 ##################facerec###################
-@app.route('/facerecognition',methods=['GET','POST'])
-def facerecognition():
-
-        state = facerec()
-        return state
+# @app.route('/facerecognition',methods=['GET','POST'])
+# def facerecognition():
+#
+#         state = facerec()
+#         return state
 
 
 ##################Messsage###################
