@@ -7,8 +7,8 @@ import numpy as np
 
 def facerec():
     label = "Not assigned"
-    face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
-    classifier =load_model('Emotion_little_vgg.h5')
+    face_classifier = cv2.CascadeClassifier('facerecognition/haarcascade_frontalface_default.xml')
+    classifier =load_model('facerecognition/Emotion_little_vgg.h5')
 
     class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
