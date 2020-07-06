@@ -1,4 +1,4 @@
-from msg import *
+from dataaccessobject.msg import *
 class msgdao:
 
     def sendmsg():

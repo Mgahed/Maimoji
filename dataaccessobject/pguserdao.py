@@ -1,6 +1,6 @@
-from pgdaofact import *
-from userdao import *
-from userr import *
+from dataaccessobject.pgdaofact import *
+from dataaccessobject.userdao import *
+from dataaccessobject.userr import *
 class pguserdao(userdao):
 
     def insertuser(self,user:userr):

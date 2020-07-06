@@ -1,6 +1,6 @@
-from pgdaofact import *
-from contactdao import *
-from contact import *
+from dataaccessobject.pgdaofact import *
+from dataaccessobject.contactdao import *
+from dataaccessobject.contact import *
 
 class pgcontactdao(contactdao):
 

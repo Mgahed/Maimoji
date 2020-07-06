@@ -1,6 +1,6 @@
-from pgdaofact import *
-from msgdao import *
-from msg import *
+from dataaccessobject.pgdaofact import *
+from dataaccessobject.msgdao import *
+from dataaccessobject.msg import *
 class pgmsgdao(msgdao):
 
     def sendmsg(self,msgg:msg):
