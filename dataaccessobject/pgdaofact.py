@@ -1,7 +1,7 @@
-from dataaccessobject.DAOFact import *
-from dataaccessobject.pguserdao import *
-from dataaccessobject.pgmsgdao import *
-from dataaccessobject.pgcontactdao import *
+from DAOFact import *
+from pguserdao import *
+from pgmsgdao import *
+from pgcontactdao import *
 
 class pgdaofact(DAOFact):
 

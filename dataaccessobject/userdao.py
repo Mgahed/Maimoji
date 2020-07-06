@@ -1,4 +1,4 @@
-from dataaccessobject.userr import *
+from userr import *
 
 class userdao:
 

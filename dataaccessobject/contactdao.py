@@ -1,4 +1,4 @@
-from dataaccessobject.contact import *
+from contact import *
 class contactdao:
 
     def addcontact():

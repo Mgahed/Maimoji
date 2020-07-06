@@ -12,11 +12,11 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 
 basdirr = os.path.abspath(os.path.dirname(__file__))
-# sys.path.insert(1, basdirr+'/DAO')
-from  dataaccessobject.pgdaofact import *
+sys.path.insert(1, basdirr+'/dataaccessobject')
+from pgdaofact import *
 
-# sys.path.insert(1, basdirr+'/MLUpload')
-from MLUpload.sentimentmodel import *
+sys.path.insert(1, basdirr+'/MLUpload')
+from sentimentmodel import *
 
 # sys.path.insert(1, basdirr+'/facerecognition')
 # from facerecognition.Test import *

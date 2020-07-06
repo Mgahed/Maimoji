@@ -11,11 +11,16 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from textblob import TextBlob
-
+import sys
+import os
+basdirr = os.path.abspath(os.path.dirname(__file__))
+trainpath = basdirr + "/training.txt"
+print(trainpath)
+from sentimentmodel import *
 
 def ftblob(text):
 
-    df = pd.read_csv("training.txt",sep='\t', names=['liked','txt'])
+    df = pd.read_csv(trainpath,sep='\t', names=['liked','txt'])
 
     stopset = set(stopwords.words('english'))
 
