@@ -206,21 +206,36 @@ api.add_resource(contacts, '/api/contacts')
 
 ##################Messsage###################
 
-@app.route('/message',methods=['GET','POST'])
-def message():
+class message(Resource):
+    def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('msg')
+        args = parser.parse_args()
+        msg = args["msg"]
+        sent = ''
+        try:
+            sent = ftblob(msg)
+            if sent == 0.5:
+                sent = "Nutral"
+            elif sent == 0:
+                sent = 'Negative'
+            elif sent == 1:
+                sent = 'Positive'
+            somedict = {
 
-    sent = ''
-    if request.method == "POST":
-        text = request.form['txt']
-        sent = ftblob(text)
-        if sent == 0.5:
-            sent = "Nutral"
-        elif sent == 0:
-            sent = 'Negative'
-        elif sent == 1:
-            sent = 'Positive'
-    # return "message endpoint"
-    return render_template('message.html',sent=sent)
+                            "boolean" : "True",
+                            "message" : msg,
+                            "state" : sent
+
+                       }
+            return somedict
+        except:
+            somedict = {
+                            "boolean" : "False"
+
+                       }
+            return somedict
+api.add_resource(message, '/api/message')
 
 ##############send msg####################
 @app.route('/sendmessage',methods=['GET','POST'])
