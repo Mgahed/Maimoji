@@ -4,6 +4,7 @@ Flask-Login==0.5.0
 Flask-Migrate==2.5.2
 Flask-SQLAlchemy==2.4.1
 gunicorn==20.0.4
+Jinja2==2.11.1
 oauthlib==3.1.0
 python-dateutil==2.8.1
 python-editor==1.0.4
@@ -21,7 +22,10 @@ scikit-learn==0.22.2.post1
 textblob==0.15.3
 Flask-RESTful==0.3.8
 Flask-Cors==3.0.8
-
+tensorboard==2.2.2
+tensorboard-plugin-wit==1.7.0
+tensorflow==2.2.0
+tensorflow-estimator==2.2.0
 opencv-python==4.2.0.34
 Keras==2.4.3
 Keras-Preprocessing==1.1.2

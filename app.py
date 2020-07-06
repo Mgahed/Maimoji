@@ -19,7 +19,7 @@ from  dataaccessobject.pgdaofact import *
 from MLUpload.sentimentmodel import *
 
 # sys.path.insert(1, basdirr+'/facerecognition')
-# from Test import *
+# from facerecognition.Test import *
 
 
 app = Flask(__name__)
