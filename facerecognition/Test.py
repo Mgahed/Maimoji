@@ -1,14 +1,18 @@
+import sys
+import os
 from keras.models import load_model
 from time import sleep
 from keras.preprocessing.image import img_to_array
 from keras.preprocessing import image
 import cv2
 import numpy as np
-
+basdirr = os.path.abspath(os.path.dirname(__file__))
+classs = basdirr + "/Emotion_little_vgg.h5"
+faceclasss = basdirr + "/haarcascade_frontalface_default.xml"
 def facerec():
     label = "Not assigned"
-    face_classifier = cv2.CascadeClassifier('facerecognition/haarcascade_frontalface_default.xml')
-    classifier =load_model('facerecognition/Emotion_little_vgg.h5')
+    face_classifier = cv2.CascadeClassifier(faceclasss)
+    classifier =load_model(classs)
 
     class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
