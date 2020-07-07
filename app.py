@@ -18,8 +18,8 @@ from pgdaofact import *
 sys.path.insert(1, basdirr+'/MLUpload')
 from sentimentmodel import *
 
-sys.path.insert(1, basdirr+'/facerecognition')
-from facerecognition.Test import *
+# sys.path.insert(1, basdirr+'/facerecognition')
+# from facerecognition.Test import *
 
 
 app = Flask(__name__)
