@@ -135,11 +135,12 @@ class login(Resource):
         res = userlogin.logintuser(number,Password)
         # print(res)
         if res[0] == True:
-            session['userlogedin'] = res[1]
+            id = res[1]
             name = res[2]
             mail = res[3]
             somedict = {
                             "boolean" : "True",
+                            "id": id,
                             "name" : name,
                             "mail" : mail,
                             "number" : number
@@ -169,7 +170,10 @@ def home():
 class contacts(Resource):
     def post(self):
         try:
-            sessionid = session['userlogedin']
+            parser = reqparse.RequestParser()
+            parser.add_argument('id')
+            args = parser.parse_args()
+            sessionid = args["id"]
             aaa  = pgdaofact.getcontactdao()
             bbb = pgdaofact.getuserdao()
             res = aaa.getcontacts(sessionid)
@@ -250,16 +254,16 @@ def sendmessage():
         return "Somethig Wrong"
 
 ##############user profile####################
-@app.route('/userprofile',methods=['GET','POST'])
-def userprofile():
-    userid = session['userlogedin']
-    bbb = pgdaofact.getuserdao()
-    userinfo = bbb.getuserbyid(userid)
-    username = userinfo[0]
-    usernumber = userinfo[1]
-    usermail = userinfo[2]
-    # return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
-    return "userprofile endpoint"
+# @app.route('/userprofile',methods=['GET','POST'])
+# def userprofile():
+#     userid = session['userlogedin']
+#     bbb = pgdaofact.getuserdao()
+#     userinfo = bbb.getuserbyid(userid)
+#     username = userinfo[0]
+#     usernumber = userinfo[1]
+#     usermail = userinfo[2]
+#     # return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
+#     return "userprofile endpoint"
 ################chathistory###########
 class chathistory(Resource):
     def post(self):
