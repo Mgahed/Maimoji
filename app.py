@@ -285,7 +285,8 @@ class chathistory(Resource):
                             "date"  : [ x for x in resmsg[1] ],
                             "sender"  : [ x for x in resmsg[2] ],
                             "recivers" : [ x for x in resmsg[3] ],
-                            "current user" : sender
+                            "currentuser" : sender,
+                            "reciever" : reciver
                        }
             return somedict
         except:
