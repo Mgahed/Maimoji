@@ -275,7 +275,7 @@ class chathistory(Resource):
         parser.add_argument('reciver')
         args = parser.parse_args()
         sender = int(args["sender"])
-        reciver = int(args["reciver"])
+        reciver = 2
         try:
             bbb = pgdaofact.getmsgdao()
             resmsg = bbb.getmsg(sender,reciver)
