@@ -30,6 +30,7 @@ class pgmsgdao(msgdao):
             senderlist = []
             reclist = []
             getms = msg.query.filter(or_(msg.userID1==userID1,msg.userID1==userID2)).filter(or_(msg.userID2==userID1,msg.userID2==userID2)).all()
+            db.session.remove()
             for value in getms:
                 # print(value)
                 msglist.append(value.msgContent)

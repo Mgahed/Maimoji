@@ -170,6 +170,7 @@ def home():
 class contacts(Resource):
     def post(self):
         try:
+            loop = 0
             parser = reqparse.RequestParser()
             parser.add_argument('id')
             args = parser.parse_args()
@@ -186,11 +187,13 @@ class contacts(Resource):
                 print(contact)
                 print(userreturned)
                 contact.append(userreturned[0])
+                loop = i+1
             if(contact[i] != False):
                 somedict = {
                                 "boolean" : "True",
                                 "contactid" : res,
-                                "contactname" : contact
+                                "contactname" : contact,
+                                "loop" : loop
                            }
         except:
             somedict = {
@@ -273,16 +276,23 @@ class chathistory(Resource):
         args = parser.parse_args()
         sender = args["sender"]
         reciver = args["reciver"]
-        bbb = pgdaofact.getmsgdao()
-        resmsg = bbb.getmsg(sender,reciver)
-        somedict = {
-                        "msg"  : [ x for x in resmsg[0] ],
-                        "date"  : [ x for x in resmsg[1] ],
-                        "sender"  : [ x for x in resmsg[2] ],
-                        "recivers" : [ x for x in resmsg[3] ],
-                        "current user" : sender
-                   }
-        return somedict
+        try:
+            bbb = pgdaofact.getmsgdao()
+            resmsg = bbb.getmsg(sender,reciver)
+            somedict = {
+                            "mgahed" : "True",
+                            "msg"  : [ x for x in resmsg[0] ],
+                            "date"  : [ x for x in resmsg[1] ],
+                            "sender"  : [ x for x in resmsg[2] ],
+                            "recivers" : [ x for x in resmsg[3] ],
+                            "current user" : sender
+                       }
+            return somedict
+        except:
+            somedict = {
+                            "mgahed" : "False"
+                       }
+            return somedict
 
 api.add_resource(chathistory, '/api/chathistory')
 
