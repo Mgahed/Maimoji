@@ -280,7 +280,7 @@ class chathistory(Resource):
             bbb = pgdaofact.getmsgdao()
             resmsg = bbb.getmsg(sender,reciver)
             somedict = {
-                            "mgahed" : "True",
+                            "boolean" : "True",
                             "msg"  : [ x for x in resmsg[0] ],
                             "date"  : [ x for x in resmsg[1] ],
                             "sender"  : [ x for x in resmsg[2] ],
@@ -290,7 +290,7 @@ class chathistory(Resource):
             return somedict
         except:
             somedict = {
-                            "mgahed" : "False"
+                            "boolean" : "False"
                        }
             return somedict
 
