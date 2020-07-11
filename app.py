@@ -1,3 +1,5 @@
+from datetime import datetime
+import pytz
 import sys
 import os
 from flask_login import logout_user
@@ -217,21 +219,34 @@ class message(Resource):
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('msg')
+        parser.add_argument('sender')
+        parser.add_argument('reciver')
         args = parser.parse_args()
-        msg = args["msg"]
+        mesg = args["msg"]
+        sender = args["sender"]
+        reciver = args["reciver"]
+        tz_NY = pytz.timezone('Africa/Cairo')
+        now = datetime.now(tz_NY)
+        datime = now.strftime("%d/%m/%Y %H:%M")
         sent = ''
         try:
-            sent = ftblob(msg)
+            sent = ftblob(mesg)
             if sent == 0.5:
                 sent = "Nutral"
+                mesg = mesg + " \U0001F610"
             elif sent == 0:
                 sent = 'Negative'
+                mesg = mesg + " \U0001F641"
             elif sent == 1:
                 sent = 'Positive'
+                mesg = mesg + " \U0001f600"
+            getmsgdao = pgdaofact.getmsgdao()
+            msg1=msg(1,sender,reciver,mesg,datime)
+            resmsg = getmsgdao.sendmsg(msg1)
             somedict = {
 
                             "boolean" : "True",
-                            "message" : msg,
+                            "message" : mesg,
                             "state" : sent
 
                        }
@@ -242,19 +257,21 @@ class message(Resource):
 
                        }
             return somedict
+
 api.add_resource(message, '/api/message')
 
 ##############send msg####################
-@app.route('/sendmessage',methods=['GET','POST'])
-def sendmessage():
-    getmsgdao = pgdaofact.getmsgdao()
-    sender = session['userlogedin']
-    msg1=msg(1,sender,2,"try","2020")
-    resmsg = getmsgdao.sendmsg(msg1)
-    if resmsg:
-        return "Done"
-    else:
-        return "Somethig Wrong"
+# @app.route('/sendmessage',methods=['GET','POST'])
+# def sendmessage():
+#     getmsgdao = pgdaofact.getmsgdao()
+#     sender = "1"
+#     reciver = "2"
+#     msg1=msg(1,sender,reciver,"try","2020")
+#     resmsg = getmsgdao.sendmsg(msg1)
+#     if resmsg:
+#         return "Done"
+#     else:
+#         return "Somethig Wrong"
 
 ##############user profile####################
 # @app.route('/userprofile',methods=['GET','POST'])
