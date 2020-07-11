@@ -287,6 +287,7 @@ api.add_resource(message, '/api/message')
 ################chathistory###########
 class chathistory(Resource):
     def post(self):
+        loop = 0
         parser = reqparse.RequestParser()
         parser.add_argument('sender')
         parser.add_argument('reciver')
@@ -296,6 +297,7 @@ class chathistory(Resource):
         try:
             bbb = pgdaofact.getmsgdao()
             resmsg = bbb.getmsg(sender,reciver)
+            loop = len(resmsg[0])
             somedict = {
                             "boolean" : "True",
                             "msg"  : [ x for x in resmsg[0] ],
@@ -303,7 +305,8 @@ class chathistory(Resource):
                             "sender"  : [ x for x in resmsg[2] ],
                             "recivers" : [ x for x in resmsg[3] ],
                             "currentuser" : sender,
-                            "reciever" : reciver
+                            "reciever" : reciver,
+                            "loop" : loop
                        }
             return somedict
         except:
