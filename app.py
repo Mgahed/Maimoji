@@ -306,7 +306,7 @@ class chathistory(Resource):
                             "recivers" : [ x for x in resmsg[3] ],
                             "currentuser" : sender,
                             "reciever" : reciver,
-                            "loop" : loop
+                            "looping" : loop
                        }
             return somedict
         except:
