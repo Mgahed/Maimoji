@@ -298,11 +298,17 @@ class chathistory(Resource):
             bbb = pgdaofact.getmsgdao()
             resmsg = bbb.getmsg(sender,reciver)
             loop = len(resmsg[0])
+            bbb = pgdaofact.getuserdao()
+            contact = []
+            for i in range(loop):
+                userreturned = bbb.getuserbyid(resmsg[2][i])
+                contact.append(userreturned[0])
+            # print(contact)
             somedict = {
                             "boolean" : "True",
                             "msg"  : [ x for x in resmsg[0] ],
                             "date"  : [ x for x in resmsg[1] ],
-                            "sender"  : [ x for x in resmsg[2] ],
+                            "sender"  : contact,
                             "recivers" : [ x for x in resmsg[3] ],
                             "currentuser" : sender,
                             "reciever" : reciver,
