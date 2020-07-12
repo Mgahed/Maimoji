@@ -280,13 +280,15 @@ class message(Resource):
             # phone = recivernumber
             print(phone)
             txt = mesg
-            return redirect("https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt))
+            whatsapp = "https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt)
+            print(whatsapp)
 ##########################################################
             somedict = {
 
                             "boolean" : "True",
                             "message" : mesg,
-                            "state" : sent
+                            "state" : sent,
+                            "whatsapp": whatsapp
 
                        }
             return somedict
