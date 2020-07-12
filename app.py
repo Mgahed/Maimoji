@@ -280,7 +280,7 @@ class message(Resource):
             # phone = recivernumber
             print(phone)
             txt = mesg
-            # return redirect("https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt))
+            return redirect("https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt))
 ##########################################################
             somedict = {
 
