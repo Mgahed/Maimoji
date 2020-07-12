@@ -1,5 +1,6 @@
 from datetime import datetime
 import pytz
+import smtplib
 import sys
 import os
 from flask_login import logout_user
@@ -223,6 +224,7 @@ class message(Resource):
         parser.add_argument('reciver')
         args = parser.parse_args()
         mesg = args["msg"]
+        mesgg = mesg
         sender = args["sender"]
         reciver = args["reciver"]
         tz_NY = pytz.timezone('Africa/Cairo')
@@ -234,15 +236,52 @@ class message(Resource):
             if sent == 0.5:
                 sent = "Nutral"
                 mesg = mesg + " \U0001F610"
+                mesgg += " :|"
             elif sent == 0:
                 sent = 'Negative'
                 mesg = mesg + " \U0001F641"
+                mesgg += " :("
             elif sent == 1:
                 sent = 'Positive'
                 mesg = mesg + " \U0001f600"
+                mesgg += " :)"
             getmsgdao = pgdaofact.getmsgdao()
             msg1=msg(1,sender,reciver,mesg,datime)
             resmsg = getmsgdao.sendmsg(msg1)
+#########################sender w recinfo#################################
+            bbb = pgdaofact.getuserdao()
+            senderreturn = bbb.getuserbyid(sender)
+            sendername = senderreturn[0]
+
+            reciverreturn = bbb.getuserbyid(reciver)
+            recivernumber = reciverreturn[1]
+            recivermail = reciverreturn[2]
+            recivernumber = "+2" + recivernumber
+#########################mai w whatsapp#################################
+            def send_email(subject, mesag, sendername):
+                try:
+                    fromm = sendername
+                    server = smtplib.SMTP('smtp.gmail.com:587')
+                    server.ehlo()
+                    server.starttls()
+                    server.login("maimojiapp@gmail.com", "MaimojiApp.com")
+                    message = 'Subject: {}\nFrom: {}\n\n{}'.format(subject,fromm, mesag)
+                    server.sendmail("maimojiapp@gmail.com", "abdelrhmanmgahed131@gmail.com ", message)
+                    server.quit()
+                    print("Success: Email sent!")
+                except:
+                    print("Email failed to send.")
+
+            subject = "From MaiMoji App"
+            mesag = mesgg
+            mesag = mesag + "\n\n\n\n\nNote: \nThis mail sent from MaiMoji App\nYou cant reply here use the App"
+            send_email(subject, mesag, sendername)
+            phone = "+201100479096"
+            # phone = recivernumber
+            print(phone)
+            txt = mesg
+            # return redirect("https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt))
+##########################################################
             somedict = {
 
                             "boolean" : "True",
