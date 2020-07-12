@@ -368,6 +368,48 @@ class chathistory(Resource):
 
 api.add_resource(chathistory, '/api/chathistory')
 
+#################add contact####################
+class addcontact(Resource):
+    def post(self):
+        typo = "This Is Flag"
+        parser = reqparse.RequestParser()
+        parser.add_argument('id')
+        parser.add_argument('mailornum')
+        parser.add_argument('typo')
+        args = parser.parse_args()
+        sessios = args["id"]
+        mailornum = args["mailornum"]
+        typo = args["typo"]
+        try:
+            bbb = pgdaofact.getuserdao()
+            userreturned = bbb.getuser(mailornum)
+            name = userreturned[2]
+            id = userreturned[1]
+            if typo != "typo":
+                somedict = {
+                                "boolean" : "True",
+                                "name" : name,
+                                "mailornumber" : mailornum
+
+                           }
+                return somedict
+            elif typo == "typo":
+                bbb = pgdaofact.getcontactdao()
+                cont=contact(1,sessios,id)
+                userreturned = bbb.addcontact(cont)
+                somedict = {
+                                "boolean" : "True"
+
+                           }
+                return somedict
+        except:
+            somedict = {
+                            "boolean" : "False"
+                       }
+            return somedict
+
+api.add_resource(addcontact, '/api/addcontact')
+
 
 ##############404 not found####################
 @app.errorhandler(404)

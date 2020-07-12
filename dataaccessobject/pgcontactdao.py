@@ -5,23 +5,23 @@ from contact import *
 class pgcontactdao(contactdao):
 
 
-    def addcontact(self,contact:contact,user:userr):
-        userID1 = contact.getuserid1()
-        userID2 = contact.getuserid2()
-        firstName = user.getFN()
-        lastName = user.getLN()
-        mail = user.getMail()
-        WhatsAppNumber = user.getWnum()
-        Password = user.getPassword()
-
-
+    def addcontact(self,cont:contact):
+        userID1 = cont.getuserid1()
+        userID2 = cont.getuserid2()
         try:
-            newcontact= contact(userID1,userID2)
-            db.session.add(newcontact)
-            db.session.commit()
-            print("added")
+            lastID = db.session.query(contact.contactID).all()
+            contactID = lastID[len(lastID)-1][0]+1
         except:
-            print("An exception occurred")
+            contactID = 1
+        # try:
+        db.session.remove()
+        newcontact= contact(contactID,userID1,userID2)
+        db.session.add(newcontact)
+        db.session.commit()
+        db.session.remove()
+        return("added")
+        # except:
+            # print("An exception occurred")
 
 
     # def getcontact(self,userID1):

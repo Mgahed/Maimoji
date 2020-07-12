@@ -1,6 +1,7 @@
 from pgdaofact import *
 from userdao import *
 from userr import *
+from sqlalchemy import or_
 class pguserdao(userdao):
 
     def insertuser(self,user:userr):
@@ -24,18 +25,13 @@ class pguserdao(userdao):
         except:
             return False
 
-    def getuser(self,usertext,choice):
+    def getuser(self,usertext):
         try:
-            if choice == "mail":
-                getauser = userr.query.filter_by(mail=usertext).first()
-                # print(userlgin.userID)
-                db.session.remove()
-                return True,getauser.userID
-            else:
-                getauser = userr.query.filter_by(WhatsAppNumber=usertext).first()
-                # print(userlgin.userID)
-                db.session.remove()
-                return True,getauser.userID
+            getauser = userr.query.filter(or_(userr.WhatsAppNumber==usertext,userr.mail==usertext)).first()
+            # print(userlgin.userID)
+            db.session.remove()
+            name = getauser.firstName + " " + getauser.lastName
+            return True,getauser.userID, name
         except:
             return False
 

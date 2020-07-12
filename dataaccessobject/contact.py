@@ -20,9 +20,10 @@ class contact(db.Model):
     userID1 = db.Column(db.Integer)
     userID2 = db.Column(db.Integer)
 
-    def __init__(self, userID1, userID2):
-        self.__userID1=userID1
-        self.__userID2=userID2
+    def __init__(self,contactID, userID1, userID2):
+        self.contactID = contactID
+        self.userID1=userID1
+        self.userID2=userID2
 
 ############################################
 

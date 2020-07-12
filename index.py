@@ -1,8 +1,9 @@
 import json
 import sys
 import os
+from sqlalchemy import or_
 basdir = os.path.abspath(os.path.dirname(__file__))
-sys.path.insert(1, basdir+'/DAO')
+sys.path.insert(1, basdir+'/dataaccessobject')
 
 
 from pgdaofact import *
@@ -59,13 +60,15 @@ app = Flask(__name__)
 # db.session.close_all()
 # # db.session.dispose()
 # print(db)
-aaa  = pgdaofact.getcontactdao()
-bbb = pgdaofact.getuserdao()
-res = aaa.getcontacts(1)
-print(res)
-contact = []
-for i in range(len(res)):
-    cont = res[i]
-    userreturned = bbb.getuserbyid(cont)
-    contact.append(userreturned[0])
-print(contact)
+# aaa  = pgdaofact.getcontactdao()
+bbb = pgdaofact.getcontactdao()
+# res = aaa.getcontacts(1)
+# print(res)
+# contact = []
+# for i in range(len(res)):
+#     cont = res[i]
+# cont = input("Enter name or number")
+cont=contact(1,2,3)
+userreturned = bbb.addcontact(cont)
+    # contact.append(userreturned[0])
+print(userreturned)
