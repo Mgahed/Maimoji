@@ -292,9 +292,11 @@ class message(Resource):
             return somedict
         except:
             somedict = {
-                            "boolean" : "False"
+                            "boolean" : "False",
                             "message" : mesg,
-                            "state" : sent
+                            "state" : sent,
+                            "sender" : sender,
+                            "rec" : reciver
 
                        }
             return somedict
