@@ -220,13 +220,13 @@ class message(Resource):
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('msg')
-        parser.add_argument('sender5')
-        parser.add_argument('reciver5')
+        parser.add_argument('sender')
+        parser.add_argument('reciver')
         args = parser.parse_args()
         mesg = args["msg"]
         mesgg = mesg
-        sender = args["sender5"]
-        reciver = args["reciver5"]
+        sender = args["sender"]
+        reciver = args["reciver"]
         tz_NY = pytz.timezone('Africa/Cairo')
         now = datetime.now(tz_NY)
         datime = now.strftime("%d/%m/%Y %H:%M")
