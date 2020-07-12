@@ -398,7 +398,8 @@ class addcontact(Resource):
                 cont=contact(1,sessios,id)
                 userreturned = bbb.addcontact(cont)
                 somedict = {
-                                "boolean" : "True"
+                                "boolean" : "True",
+                                "name" : name
 
                            }
                 return somedict
