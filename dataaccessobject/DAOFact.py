@@ -1,7 +1,7 @@
 import os
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import *
+# from flask_migrate import *
 
 class DAOFact:
 

@@ -2,7 +2,7 @@ import os
 from flask import *
 from flask_sqlalchemy import *
 from sqlalchemy import or_
-from flask_migrate import *
+# from flask_migrate import *
 
 basdir = os.path.abspath(os.path.dirname(__file__))
 # sys.path.insert(1, basdir+'../')
@@ -12,7 +12,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://awqyourp:ePCWRA1-5xrGQNBdtNqVZKpQmBE96iaZ@drona.db.elephantsql.com:5432/awqyourp'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-Migrate(app,db)
+# Migrate(app,db)
 
 
 class msg(db.Model):

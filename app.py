@@ -7,7 +7,7 @@ from flask_login import logout_user
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
-from flask_migrate import *
+# from flask_migrate import *
 from flask_restful import Resource,Api,reqparse
 from flask_cors import CORS
 from flask_dance.contrib.google import make_google_blueprint, google
@@ -39,7 +39,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://awqyourp:ePCWRA1-5xrGQNBdtNq
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
 db = SQLAlchemy(app)
-Migrate(app,db)
+# Migrate(app,db)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 ####################################
 
