@@ -44,34 +44,27 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 
 # ##################signUp########################
-# class signup(Resource):
-#     def post(self):
-#         parser = reqparse.RequestParser()
-#         parser.add_argument('FN')
-#         parser.add_argument('LN')
-#         parser.add_argument('mail')
-#         parser.add_argument('snum')
-#         parser.add_argument('spass')
-#         args = parser.parse_args()
-#         firstname = args["FN"]
-#         lastname = args["LN"]
-#         mail = args["mail"]
-#         number = args["snum"]
-#         Password = args["spass"]
-#         usersignup = pgdaofact.getuserdao()
-#         user1=userr(1,firstname,lastname,mail,number,Password)
-#         res = usersignup.insertuser(user1)
-#         db.session.close_all()
-#         if res == True:
-#             somedict = {
-#                             "boolean" : "True"
-#                        }
-#         else:
-#             somedict = {
-#                             "boolean" : "False"
-#                        }
-#         return somedict
+class signup(Resource):
+    def signup(firstname,lastname,mail,number,Password):
+        usersignup = pgdaofact.getuserdao()
+        user1=userr(1,firstname,lastname,mail,number,Password)
+        res = usersignup.insertuser(user1)
+        db.session.close_all()
+        if res == True:
+            somedict = {
+                            "boolean" : "True"
+                       }
+        else:
+            somedict = {
+                            "boolean" : "False"
+                       }
+        return somedict
 # api.add_resource(signup, '/api/signup')
+def test_sigup():
+    somedict = {
+                    "boolean" : "True"
+               }
+    assert signup.signup("a","a","ca@ca.com","07775","def") == somedict
 #
 # ##################login########################
 class login(Resource):
@@ -95,13 +88,13 @@ class login(Resource):
 def test_login():
     somedict = {
                     "boolean": "True",
-                    "id": 5,
+                    "id": 1,
                     "name": "Abdelrhman Mgahed",
                     "mail": "abdelrhmanmgahed131@gmail.com",
                     "number": "01100479096"
 
                }
-    assert login.login("01100479096","authentt") == somedict
+    assert login.login("01100479096","aaaa") == somedict
 
 # ##################Contacts###################
 class contacts(Resource):
