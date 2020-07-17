@@ -310,7 +310,10 @@ class message(Resource):
                             "message" : mesg,
                             "state" : sent,
                             "sender" : sender,
-                            "rec" : reciver
+                            "rec" : reciver,
+                            "neutral" : neutral,
+                            "happy" : happy,
+                            "sad" : sad
 
                        }
             return somedict
