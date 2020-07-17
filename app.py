@@ -222,11 +222,17 @@ class message(Resource):
         parser.add_argument('msg')
         parser.add_argument('sender')
         parser.add_argument('reciver')
+        parser.add_argument('neutral')
+        parser.add_argument('happy')
+        parser.add_argument('sad')
         args = parser.parse_args()
         mesg = args["msg"]
         mesgg = mesg
         sender = args["sender"]
         reciver = args["reciver"]
+        neutral = args["neutral"]
+        happy = args["happy"]
+        sad = args["sad"]
         tz_NY = pytz.timezone('Africa/Cairo')
         now = datetime.now(tz_NY)
         datime = now.strftime("%d/%m/%Y %H:%M")
@@ -282,13 +288,19 @@ class message(Resource):
             txt = mesg
             whatsapp = "https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt)
             print(whatsapp)
+            neutral = "n = " + neutral
+            happy = "h = " + happy
+            sad = "s = " + sad
 ##########################################################
             somedict = {
 
                             "boolean" : "True",
                             "message" : mesg,
                             "state" : sent,
-                            "whatsapp": whatsapp
+                            "whatsapp": whatsapp,
+                            "neutral" : neutral,
+                            "happy" : happy,
+                            "sad" : sad
 
                        }
             return somedict

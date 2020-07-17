@@ -49,7 +49,6 @@ class signup(Resource):
         usersignup = pgdaofact.getuserdao()
         user1=userr(1,firstname,lastname,mail,number,Password)
         res = usersignup.insertuser(user1)
-        db.session.close_all()
         if res == True:
             somedict = {
                             "boolean" : "True"
@@ -135,108 +134,91 @@ def test_contacts():
 #
 # ##################Messsage###################
 #
-# class message(Resource):
-#     def post(self):
-#         parser = reqparse.RequestParser()
-#         parser.add_argument('msg')
-#         parser.add_argument('sender')
-#         parser.add_argument('reciver')
-#         args = parser.parse_args()
-#         mesg = args["msg"]
-#         mesgg = mesg
-#         sender = args["sender"]
-#         reciver = args["reciver"]
-#         tz_NY = pytz.timezone('Africa/Cairo')
-#         now = datetime.now(tz_NY)
-#         datime = now.strftime("%d/%m/%Y %H:%M")
-#         sent = ''
-#         try:
-#             sent = ftblob(mesg)
-#             if sent == 0.5:
-#                 sent = "Nutral"
-#                 mesg = mesg + " \U0001F610"
-#                 mesgg += " :|"
-#             elif sent == 0:
-#                 sent = 'Negative'
-#                 mesg = mesg + " \U0001F641"
-#                 mesgg += " :("
-#             elif sent == 1:
-#                 sent = 'Positive'
-#                 mesg = mesg + " \U0001f600"
-#                 mesgg += " :)"
-#             getmsgdao = pgdaofact.getmsgdao()
-#             msg1=msg(1,sender,reciver,mesg,datime)
-#             resmsg = getmsgdao.sendmsg(msg1)
-# #########################sender w recinfo#################################
-#             bbb = pgdaofact.getuserdao()
-#             senderreturn = bbb.getuserbyid(sender)
-#             sendername = senderreturn[0]
-#
-#             reciverreturn = bbb.getuserbyid(reciver)
-#             recivernumber = reciverreturn[1]
-#             recivermail = reciverreturn[2]
-#             recivernumber = "+2" + recivernumber
-# #########################mai w whatsapp#################################
-#             def send_email(subject, mesag, sendername):
-#                 try:
-#                     fromm = sendername
-#                     server = smtplib.SMTP('smtp.gmail.com:587')
-#                     server.ehlo()
-#                     server.starttls()
-#                     server.login("maimojiapp@gmail.com", "MaimojiApp.com")
-#                     message = 'Subject: {}\nFrom: {}\n\n{}'.format(subject,fromm, mesag)
-#                     server.sendmail("maimojiapp@gmail.com", "abdelrhmanmgahed131@gmail.com ", message)
-#                     server.quit()
-#                     print("Success: Email sent!")
-#                 except:
-#                     print("Email failed to send.")
-#
-#             subject = "From MaiMoji App"
-#             mesag = mesgg
-#             mesag = mesag + "\n\n\n\n\nNote: \nThis mail sent from MaiMoji App\nYou cant reply here use the App"
-#             send_email(subject, mesag, sendername)
-#             phone = "+201100479096"
-#             # phone = recivernumber
-#             print(phone)
-#             txt = mesg
-#             whatsapp = "https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt)
-#             print(whatsapp)
-# ##########################################################
-#             somedict = {
-#
-#                             "boolean" : "True",
-#                             "message" : mesg,
-#                             "state" : sent,
-#                             "whatsapp": whatsapp
-#
-#                        }
-#             return somedict
-#         except:
-#             somedict = {
-#                             "boolean" : "False",
-#                             "message" : mesg,
-#                             "state" : sent,
-#                             "sender" : sender,
-#                             "rec" : reciver
-#
-#                        }
-#             return somedict
-#
+class message(Resource):
+    def message(mesg,sender,reciver):
+        mesgg = mesg
+        tz_NY = pytz.timezone('Africa/Cairo')
+        now = datetime.now(tz_NY)
+        datime = now.strftime("%d/%m/%Y %H:%M")
+        sent = ''
+        try:
+            sent = ftblob(mesg)
+            if sent == 0.5:
+                sent = "Nutral"
+                mesg = mesg + " \U0001F610"
+                mesgg += " :|"
+            elif sent == 0:
+                sent = 'Negative'
+                mesg = mesg + " \U0001F641"
+                mesgg += " :("
+            elif sent == 1:
+                sent = 'Positive'
+                mesg = mesg + " \U0001f600"
+                mesgg += " :)"
+            getmsgdao = pgdaofact.getmsgdao()
+            msg1=msg(1,sender,reciver,mesg,datime)
+            resmsg = getmsgdao.sendmsg(msg1)
+#########################sender w recinfo#################################
+            bbb = pgdaofact.getuserdao()
+            senderreturn = bbb.getuserbyid(sender)
+            sendername = senderreturn[0]
+
+            reciverreturn = bbb.getuserbyid(reciver)
+            recivernumber = reciverreturn[1]
+            recivermail = reciverreturn[2]
+            recivernumber = "+2" + recivernumber
+#########################mai w whatsapp#################################
+            def send_email(subject, mesag, sendername):
+                try:
+                    fromm = sendername
+                    server = smtplib.SMTP('smtp.gmail.com:587')
+                    server.ehlo()
+                    server.starttls()
+                    server.login("maimojiapp@gmail.com", "MaimojiApp.com")
+                    message = 'Subject: {}\nFrom: {}\n\n{}'.format(subject,fromm, mesag)
+                    server.sendmail("maimojiapp@gmail.com", "abdelrhmanmgahed131@gmail.com ", message)
+                    server.quit()
+                    print("Success: Email sent!")
+                except:
+                    print("Email failed to send.")
+
+            subject = "From MaiMoji App"
+            mesag = mesgg
+            mesag = mesag + "\n\n\n\n\nNote: \nThis mail sent from MaiMoji App\nYou cant reply here use the App"
+            send_email(subject, mesag, sendername)
+            phone = "+201100479096"
+            # phone = recivernumber
+            print(phone)
+            txt = mesg
+            whatsapp = "https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt)
+            print(whatsapp)
+##########################################################
+            somedict = {
+
+                            "boolean" : "True",
+                            "message" : mesg,
+                            "state" : sent,
+                            "whatsapp": whatsapp
+
+                       }
+            return True
+        except:
+            somedict = {
+                            "boolean" : "False",
+                            "message" : mesg,
+                            "state" : sent,
+                            "sender" : sender,
+                            "rec" : reciver
+
+                       }
+            return somedict
+
 # api.add_resource(message, '/api/message')
-#
-# ##############send msg####################
-# # @app.route('/sendmessage',methods=['GET','POST'])
-# # def sendmessage():
-# #     getmsgdao = pgdaofact.getmsgdao()
-# #     sender = "1"
-# #     reciver = "2"
-# #     msg1=msg(1,sender,reciver,"try","2020")
-# #     resmsg = getmsgdao.sendmsg(msg1)
-# #     if resmsg:
-# #         return "Done"
-# #     else:
-# #         return "Somethig Wrong"
-#
+
+def test_message():
+    assert message.message("trypytest","1","2") == True
+
+
 # ##############user profile####################
 # # @app.route('/userprofile',methods=['GET','POST'])
 # # def userprofile():
@@ -249,43 +231,38 @@ def test_contacts():
 # #     # return render_template('profileinfo.html',username=username,usernumber=usernumber,usermail=usermail)
 # #     return "userprofile endpoint"
 # ################chathistory###########
-# class chathistory(Resource):
-#     def post(self):
-#         loop = 0
-#         parser = reqparse.RequestParser()
-#         parser.add_argument('sender')
-#         parser.add_argument('reciver')
-#         args = parser.parse_args()
-#         sender = args["sender"]
-#         reciver = args["reciver"]
-#         try:
-#             bbb = pgdaofact.getmsgdao()
-#             resmsg = bbb.getmsg(sender,reciver)
-#             loop = len(resmsg[0])
-#             bbb = pgdaofact.getuserdao()
-#             contact = []
-#             for i in range(loop):
-#                 userreturned = bbb.getuserbyid(resmsg[2][i])
-#                 contact.append(userreturned[0])
-#             # print(contact)
-#             somedict = {
-#                             "boolean" : "True",
-#                             "msg"  : [ x for x in resmsg[0] ],
-#                             "date"  : [ x for x in resmsg[1] ],
-#                             "sender"  : contact,
-#                             "recivers" : [ x for x in resmsg[3] ],
-#                             "currentuser" : sender,
-#                             "reciever" : reciver,
-#                             "looping" : loop
-#                        }
-#             return somedict
-#         except:
-#             somedict = {
-#                             "boolean" : "False"
-#                        }
-#             return somedict
-#
+class chathistory(Resource):
+    def chathistory(sender,reciver):
+        loop = 0
+        try:
+            bbb = pgdaofact.getmsgdao()
+            resmsg = bbb.getmsg(sender,reciver)
+            loop = len(resmsg[0])
+            bbb = pgdaofact.getuserdao()
+            contact = []
+            for i in range(loop):
+                userreturned = bbb.getuserbyid(resmsg[2][i])
+                contact.append(userreturned[0])
+            somedict = {
+                            "boolean" : "True",
+                            "msg"  : [ x for x in resmsg[0] ],
+                            "date"  : [ x for x in resmsg[1] ],
+                            "sender"  : contact,
+                            "recivers" : [ x for x in resmsg[3] ],
+                            "currentuser" : sender,
+                            "reciever" : reciver,
+                            "looping" : loop
+                       }
+            return True
+        except:
+            somedict = {
+                            "boolean" : "False"
+                       }
+            return somedict
+
 # api.add_resource(chathistory, '/api/chathistory')
+def test_chathistory():
+    assert chathistory.chathistory("1","2") == True
 #
 # #################add contact####################
 # class addcontact(Resource):
