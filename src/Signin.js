@@ -55,7 +55,7 @@ class Signin extends Component {
       .then(response => {
         console.log(response.data)
         var mgahd = response.data.boolean;
-        
+
         if (mgahd === "True") {
           var mail = response.data.mail;
           var name = response.data.name;
@@ -66,10 +66,10 @@ class Signin extends Component {
           alert("Error");
         }
         //document.getElementById("usermail").innerHTML = mail;
-        sessionStorage.setItem("mail",mail);
-        sessionStorage.setItem("name",name);
-        sessionStorage.setItem("num",num);
-        sessionStorage.setItem("id",id);
+        sessionStorage.setItem("mail", mail);
+        sessionStorage.setItem("name", name);
+        sessionStorage.setItem("num", num);
+        sessionStorage.setItem("id", id);
 
       })
       .catch(error => {
@@ -110,7 +110,8 @@ class Signin extends Component {
       },
     }));
 
-    
+ 
+
     return (
       <div>
 
@@ -126,80 +127,85 @@ class Signin extends Component {
               <li class="nav-item">
                 <a class="nav-link active" href="/Signin" variant="body2">Signin</a>
               </li>
-              
+
             </ul>
           </div>
         </div>
+        <center>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Grid >
+            <CssBaseline />
+            <Grid item xs={false} sm={4} md={7} className={useStyles.image} />
+            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+              <div className={useStyles.paper}>
+                <Avatar className={useStyles.avatar}>
 
-        <Grid container component="main" className={useStyles.root}>
-          <CssBaseline />
-          <Grid item xs={false} sm={4} md={7} className={useStyles.image} />
-          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
-            <div className={useStyles.paper}>
-              <Avatar className={useStyles.avatar}>
-
-              </Avatar>
-              <Typography component="h1" variant="h5">
-                Sign in
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Sign in
           </Typography>
-              <form onSubmit={this.submitHandler}>
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="num"
-                  label="Phone Number"
-                  name="number"
-                  autoComplete="num"
-                  type="number"
-                  autoFocus
-                  onChange={this.changeHandler}
-                />
-                <TextField
-                  variant="outlined"
-                  margin="normal"
-                  required
-                  fullWidth
-                  name="pass"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="current-password"
-                  onChange={this.changeHandler}
-                />
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  color="primary"
-                  className={useStyles.submit}
-                >
-                  Sign In
+                <form onSubmit={this.submitHandler}>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="num"
+                    label="Phone Number"
+                    name="number"
+                    autoComplete="num"
+                    type="number"
+                    autoFocus
+                    onChange={this.changeHandler}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="pass"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    onChange={this.changeHandler}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={useStyles.submit}
+                  >
+                    Sign In
             </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
+                  <Grid container>
+                    <Grid item xs>
+                      <Link href="#" variant="body2">
+                        Forgot password?
                 </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href="/Signup" variant="body2">
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                    <Link href="/Signup" variant="body2">
-                      {"Don't have an account? Sign Up"}
-                    </Link>
-                  </Grid>
-                </Grid>
-                <Box mt={5}>
-                  <Copyright />
-                </Box>
-              </form>
-            </div>
+                  <Box mt={5}>
+                    <Copyright />
+                  </Box>
+                </form>
+              </div>
+            </Grid>
           </Grid>
-        </Grid>
+        </center>
       </div>
     )
   }

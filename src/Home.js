@@ -4,6 +4,7 @@ import './Home.css';
 
 export default class Home extends Component {
     render() {
+        sessionStorage.clear();
         return (
             <div>
                 <div class="card text-center">

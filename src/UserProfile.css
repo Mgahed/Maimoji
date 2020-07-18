@@ -92,6 +92,10 @@ img {
   font-display: #f5f5f5 ;
 }
 
+.Right{
+  float: right;
+}
+
 .about-section .counter {
   padding: 22px 20px;
   background: #ffffff;

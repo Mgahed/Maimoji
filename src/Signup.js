@@ -10,8 +10,8 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 
@@ -59,7 +59,6 @@ class Signup extends Component {
 	}
 
 	render() {
-
 		const useStyles = makeStyles(theme => ({
 			paper: {
 				marginTop: theme.spacing(8),
@@ -80,9 +79,10 @@ class Signup extends Component {
 			},
 		}));
 
+
 		const { FN } = this.state
 		return (
-
+<sss>
 			<div>
 
 				<div class="card text-center">
@@ -205,6 +205,7 @@ class Signup extends Component {
 				</Container>
 
 			</div>
+			</sss>
 		)
 	}
 }
