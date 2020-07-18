@@ -226,31 +226,55 @@ class message(Resource):
         parser.add_argument('happy')
         parser.add_argument('sad')
         args = parser.parse_args()
-        mesg = args["msg"]
-        mesgg = mesg
+        mmesgg = args["msg"]
+        mesgg = mmesgg
         sender = args["sender"]
         reciver = args["reciver"]
         neutral = args["neutral"]
         happy = args["happy"]
         sad = args["sad"]
+        maxface = max(happy,sad,neutral)
+        facestate = ""
         tz_NY = pytz.timezone('Africa/Cairo')
         now = datetime.now(tz_NY)
         datime = now.strftime("%d/%m/%Y %H:%M")
         sent = ''
+        # maxface = float(maxface)
+        # happy = float(happy)
+        # neutral = float(neutral)
+        # sad = float(sad)
         try:
-            sent = ftblob(mesg)
+            sent = ftblob(mmesgg)
             if sent == 0.5:
                 sent = "Nutral"
-                mesg = mesg + " \U0001F610"
+                mesg = mmesgg + " \U0001F610"
                 mesgg += " :|"
             elif sent == 0:
                 sent = 'Negative'
-                mesg = mesg + " \U0001F641"
+                mesg = mmesgg + " \U0001F641"
                 mesgg += " :("
             elif sent == 1:
                 sent = 'Positive'
-                mesg = mesg + " \U0001f600"
+                mesg = mmesgg + " \U0001f600"
                 mesgg += " :)"
+            if maxface == happy and maxface > "0.8":
+                mesgg = mmesgg
+                facestate = "happy"
+                sent = 'Positive'
+                mesg = mmesgg + " \U0001f600"
+                mesgg += " :)"
+            if maxface == neutral and maxface > "0.8":
+                mesgg = mmesgg
+                facestate = "neutral"
+                sent = "Nutral"
+                mesg = mmesgg + " \U0001F610"
+                mesgg += " :|"
+            if maxface == sad and maxface > "0.8":
+                mesgg = mmesgg
+                facestate = "sad"
+                sent = 'Negative'
+                mesg = mmesgg + " \U0001F641"
+                mesgg += " :("
             getmsgdao = pgdaofact.getmsgdao()
             msg1=msg(1,sender,reciver,mesg,datime)
             resmsg = getmsgdao.sendmsg(msg1)

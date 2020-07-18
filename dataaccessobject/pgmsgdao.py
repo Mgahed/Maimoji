@@ -10,7 +10,7 @@ class pgmsgdao(msgdao):
         msgDate = msgg.getmsgdate()
 
         try:
-            lastID = db.session.query(msg.msgID).all()
+            lastID = db.session.query(func.max(msg.msgID)).all()
             msgID = lastID[len(lastID)-1][0]+1
         except:
             msgID = 1

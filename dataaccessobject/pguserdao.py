@@ -2,6 +2,7 @@ from pgdaofact import *
 from userdao import *
 from userr import *
 from sqlalchemy import or_
+from sqlalchemy.sql.expression import func
 class pguserdao(userdao):
 
     def insertuser(self,user:userr):
@@ -11,7 +12,8 @@ class pguserdao(userdao):
         WhatsAppNumber = user.getWnum()
         Password = user.getPassword()
         try:
-            lastID = db.session.query(userr.userID).all()
+
+            lastID = db.session.query(func.max(userr.userID)).all()
             userID = lastID[len(lastID)-1][0]+1
         except:
             userID = 1
@@ -31,7 +33,7 @@ class pguserdao(userdao):
             # print(userlgin.userID)
             db.session.remove()
             name = getauser.firstName + " " + getauser.lastName
-            return True,getauser.userID, name
+            return True,getauser.userID, name, userID
         except:
             return False
 
