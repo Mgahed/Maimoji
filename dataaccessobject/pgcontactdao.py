@@ -1,7 +1,7 @@
 from pgdaofact import *
 from contactdao import *
 from contact import *
-
+from sqlalchemy.sql.expression import func
 class pgcontactdao(contactdao):
 
 
@@ -9,7 +9,7 @@ class pgcontactdao(contactdao):
         userID1 = cont.getuserid1()
         userID2 = cont.getuserid2()
         try:
-            lastID = db.session.query(contact.contactID).all()
+            lastID = db.session.query(func.max(contact.contactID)).all()
             contactID = lastID[len(lastID)-1][0]+1
         except:
             contactID = 1
