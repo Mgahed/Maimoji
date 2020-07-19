@@ -19,6 +19,7 @@ class pgmsgdao(msgdao):
             newmsg= msg(msgID,userID1,userID2,msgContent,msgDate)
             db.session.add(newmsg)
             db.session.commit()
+            db.session.remove()
             return True
         except:
             return False
