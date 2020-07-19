@@ -33,7 +33,7 @@ class pguserdao(userdao):
             # print(userlgin.userID)
             db.session.remove()
             name = getauser.firstName + " " + getauser.lastName
-            return True,getauser.userID, name, userID
+            return True,getauser.userID, name
         except:
             return False
 
