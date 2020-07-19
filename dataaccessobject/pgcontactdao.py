@@ -13,15 +13,15 @@ class pgcontactdao(contactdao):
             contactID = lastID[len(lastID)-1][0]+1
         except:
             contactID = 1
-        # try:
-        db.session.remove()
-        newcontact= contact(contactID,userID1,userID2)
-        db.session.add(newcontact)
-        db.session.commit()
-        db.session.remove()
-        return("added")
-        # except:
-            # print("An exception occurred")
+        try:
+            db.session.remove()
+            newcontact= contact(contactID,userID1,userID2)
+            db.session.add(newcontact)
+            db.session.commit()
+            db.session.remove()
+        # return("added")
+        except:
+            print("An exception occurred")
 
 
     # def getcontact(self,userID1):
@@ -40,6 +40,7 @@ class pgcontactdao(contactdao):
 
         contacts = []
         try:
+            db.session.remove()
             getcontt = contact.query.filter_by(userID1=userID1).all()
             db.session.remove()
             for value in getcontt:
