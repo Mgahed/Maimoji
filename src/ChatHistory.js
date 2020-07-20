@@ -45,6 +45,11 @@ class ChatHistory extends (Component) {
         this.state.neutral = sessionStorage.getItem("neutral");
         this.state.happy = sessionStorage.getItem("happy");
         this.state.sad = sessionStorage.getItem("sad");
+        if (this.state.happy === null){
+          this.state.neutral = "-1";
+          this.state.happy = "-1";
+          this.state.sad = "-1";
+        }
         console.log(this.state.neutral);
     }
 
