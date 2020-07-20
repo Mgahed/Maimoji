@@ -55,8 +55,8 @@ class UserProfile extends Component {
                     window.localStorage.setItem("loop", JSON.stringify(loop)); // Saving
 
 
-                    window.location.replace("http://localhost:3000/Contacts")
-                    // window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
+                    // window.location.replace("http://localhost:3000/Contacts")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
 
                 } else {
                     alert("Error");
