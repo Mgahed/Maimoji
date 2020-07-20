@@ -61,8 +61,8 @@ class Signin extends Component {
           var name = response.data.name;
           var num = response.data.number;
           var id = response.data.id;
-          // window.location.replace("http://localhost:3000/UserProfile")
-          window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
+          window.location.replace("http://localhost:3000/UserProfile")
+          // window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
         } else {
           alert("Error");
         }
