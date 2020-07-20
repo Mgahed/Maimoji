@@ -45,9 +45,9 @@ export async function getFullFaceDescription(blob, inputSize = 512) {
     sessionStorage.setItem("neutral",neutral)
     sessionStorage.setItem("happy",happy)
     sessionStorage.setItem("sad",sad)
-    // console.log("neutarl = " + neutral)
-    // console.log("happy = " + happy)
-    // console.log("sad = " + sad)
+    console.log("neutarl = " + neutral)
+    console.log("happy = " + happy)
+    console.log("sad = " + sad)
   } catch{ console.log("No Dedection") }
   return fullDesc;
 }

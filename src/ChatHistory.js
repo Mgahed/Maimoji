@@ -18,9 +18,9 @@ class ChatHistory extends (Component) {
 
     constructor(props) {
         super(props)
-        var neutral = sessionStorage.getItem("neutral")
-        var happy = sessionStorage.getItem("happy")
-        var sad = sessionStorage.getItem("sad")
+        var neutral = sessionStorage.getItem("neutral");
+        var happy = sessionStorage.getItem("happy");
+        var sad = sessionStorage.getItem("sad");
         var sender = sessionStorage.getItem("id");
         var reciver = JSON.parse(window.localStorage.getItem("rec")); // Retrieving
 
@@ -37,11 +37,17 @@ class ChatHistory extends (Component) {
 
     changeHandler = e => {
         this.setState({ [e.target.name]: e.target.value })
+        this.state.neutral = sessionStorage.getItem("neutral");
+        this.state.happy = sessionStorage.getItem("happy");
+        this.state.sad = sessionStorage.getItem("sad");
+        console.log(this.state.neutral);
     }
+
 
     submitHandler = e => {
         e.preventDefault()
         console.log(this.state)
+        console.log(sessionStorage.getItem("happy"));
         axios
             .post('https://maimoji.herokuapp.com/api/message', this.state)
             .then(response => {
@@ -53,7 +59,7 @@ class ChatHistory extends (Component) {
                 if (mgahd === "True") {
                     var whats = response.data.whatsapp
                     window.location.replace(whats)
-                   
+
 
                     // console.log(response.data)
 
@@ -77,8 +83,6 @@ class ChatHistory extends (Component) {
     render() {
 
 
-
-
         // require("script")
         var messages = JSON.parse(window.localStorage.getItem("messages")); // Retrieving
         // var id = sessionStorage.getItem("id");
@@ -98,7 +102,7 @@ class ChatHistory extends (Component) {
 
         // for (const [index, value] of elements.entries()) {
         //     items.push(<li key={index}>{value}</li>)
-        
+
         var sender1 = [];
         var date1 = [];
         var reciever1 = [];
@@ -116,8 +120,7 @@ class ChatHistory extends (Component) {
 
         const { sender, reciver, neutral, happy, sad } = this.state
 
-        
-
+        console.log("neutral " + neutral);
         return (
 
 
@@ -153,11 +156,18 @@ class ChatHistory extends (Component) {
                     <h1 class="dark-color">Chat History</h1>
                     <h2>
 
+
                         <div class="row about-list">
                             <div class="col-md-6">
 
                                 {/* <input name="sender" type="hidden" value={sen} onChange={this.changeHandler}></input> */}
                                 {dates.map((value, index) => {
+                                  // var neutral = sessionStorage.getItem("neutral")
+                                  // var happy = sessionStorage.getItem("happy")
+                                  // var sad = sessionStorage.getItem("sad")
+                                  // console.log("happyyy " + happy)
+                                  // console.log("sad " + sad)
+                                  // console.log("neutral " + neutral)
                                     var z = value;
                                     console.log(z)
                                     // return <option value={z}>{Arr[index]}</option>
@@ -167,11 +177,10 @@ class ChatHistory extends (Component) {
                                         <div class="card-header">{date1[index]}</div>
                                         <div class="card-body">
                                             <h1 class="card-title">Sender: {sender1[index]}</h1>
-
+                                            <p>{ sessionStorage.getItem("neutral")}</p>
                                             <p class="card-text">{message1[index]}</p>
                                         </div>
                                     </div>
-
                                 })}
 
                                 <form class="Right" onSubmit={this.submitHandler}>
