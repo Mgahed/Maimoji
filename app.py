@@ -233,6 +233,12 @@ class message(Resource):
         neutral = args["neutral"]
         happy = args["happy"]
         sad = args["sad"]
+        if neutral == "null" or neutral > "1.0":
+            neutral = "0.1"
+        if happy == "null" or happy > "1.0":
+            happy = "0.1"
+        if sad == "null" or sad > "1.0":
+            sad = "0.1"
         maxface = max(happy,sad,neutral)
         facestate = ""
         tz_NY = pytz.timezone('Africa/Cairo')
