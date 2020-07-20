@@ -153,7 +153,7 @@ class Signin extends Component {
                     id="num"
                     label="Phone Number"
                     name="number"
-                    autoComplete="num"
+                    autoComplete="number"
                     type="number"
                     autoFocus
                     onChange={this.changeHandler}

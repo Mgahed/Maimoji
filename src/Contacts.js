@@ -70,7 +70,7 @@ class Contacts extends Component {
 
 
                 } else {
-                    alert("Error");
+                    alert("Error, Try again");
                     console.log(mgahd)
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;

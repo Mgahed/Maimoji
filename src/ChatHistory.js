@@ -68,7 +68,7 @@ class ChatHistory extends (Component) {
                     //   window.location.replace("http://localhost:3000/chathistory")
 
                 } else {
-                    alert("Error");
+                    alert("Error, Try again");
                     console.log(mgahd)
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;
@@ -130,17 +130,17 @@ class ChatHistory extends (Component) {
                 <div class="card-header">
                     <ul class="nav nav-pills card-header-pills">
                         <li class="nav-item">
-                            <a class="nav-link" href="/UserProfile" variant="body2">UserProfile</a>
+                            <a class="nav-link" href="/UserProfile" variant="body2"><h4>UserProfile</h4></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/Contacts" variant="body2">Contacts</a>
+                            <a class="nav-link" href="/Contacts" variant="body2"><h4>Contacts</h4></a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/AddContact" variant="body2">Add Contact</a>
+                            <a class="nav-link" href="/AddContact" variant="body2"><h4>Add Contact</h4></a>
                         </li>
                         <li class="nav-item">
-                            <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2">Log Out</a>
+                            <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2"><h4>Log Out</h4></a>
                         </li>
                     </ul>
                 </div>
@@ -169,15 +169,20 @@ class ChatHistory extends (Component) {
                     {items}
                 </div> */}
 
-                <div>
+                <div class="jumbotron">
 
                     <div class="col-lg-6">
                         <div class="about-avatar">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                             <VideoInput></VideoInput>
                         </div>
                     </div>
                     <h1 class="dark-color">Chat History</h1>
-                    <h2>
+                    <br></br>
+                    <h5>
 
 
                         <div class="row about-list">
@@ -196,15 +201,14 @@ class ChatHistory extends (Component) {
                                     // return <option value={z}>{Arr[index]}</option>
 
 
-                                    return <div class="card text-white bg-info mb-3" >
+                                    return <div Style="width: 600px;" class="card text-white bg-info mb-3" >
                                         <div class="card-header">{date1[index]}</div>
                                         <div class="card-body">
-                                            <h1 class="card-title">Sender: {sender1[index]}</h1>
-                                            <p class="card-text">{message1[index]}</p>
+                                            <h2 class="card-title">Sender: {sender1[index]}</h2>
+                                            <h3 class="card-text">{message1[index]}</h3>
                                         </div>
                                     </div>
                                 })}
-
                                 <form class="Right" onSubmit={this.submitHandler}>
 
                                     {/* <video id="video" width="720" height="560" autoPlay muted></video> */}
@@ -217,16 +221,12 @@ class ChatHistory extends (Component) {
                                     <input name="reciver5" type="hidden" value={reciver} onChange={this.changeHandler}></input>
                                     <div class="fixed-bottom">
                                         <div class="input-group mb-3">
-
-                                            <input name="msg" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={this.changeHandler}></input>
+                                            <input Style="height:50px;" name="msg" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" onChange={this.changeHandler}></input>
                                             <div class="input-group-append">
-                                                <Button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send</Button>
+                                                <Button Style="width: 70px;" class="btn btn-success" type="submit" id="button-addon2"><h2>Send</h2></Button>
                                             </div>
                                         </div>
-
                                     </div>
-                                    <br></br>
-
                                 </form>
 
                             </div>
@@ -234,7 +234,7 @@ class ChatHistory extends (Component) {
 
                         </div>
 
-                    </h2>
+                    </h5>
 
 
 

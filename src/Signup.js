@@ -57,10 +57,12 @@ class Signup extends Component {
 				console.log(response.data.boolean)
 				var mgahd = response.data.boolean;
 				if (mgahd === "True") {
-					alert("Done");
+					alert("Signed Up successful, Go and Signin");
+          window.location.replace("http://localhost:3000/Signin")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/Signin")
 
 				} else {
-					alert("Error");
+					alert("ErrorMaybe some Information already exist");
 				}
 				//document.getElementById("Demo").innerHTML = mgahd;
 

@@ -9,7 +9,9 @@ export async function loadModels() {
   await faceapi.loadFaceExpressionModel(MODEL_URL);
   // alert(MODEL_URL)
 }
-
+var neutral = "-1";
+var happy = "-1";
+var sad = "-1";
 export async function getFullFaceDescription(blob, inputSize = 512) {
   // const detections = await faceapi.detectAllFaces(blob, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions();
   // const resizedDetections = faceapi.resizeResults(detections, inputSize);
@@ -35,9 +37,6 @@ export async function getFullFaceDescription(blob, inputSize = 512) {
     .withFaceExpressions();
 
   console.log(fullDesc)
-  var neutral = "-1";
-  var happy = "-1";
-  var sad = "-1";
   try {
     neutral = fullDesc[0].expressions.neutral;
     happy = fullDesc[0].expressions.happy;

@@ -35,13 +35,13 @@ class AddContact extends Component {
 
                 if (mgahd === "True") {
 
-                    alert(name)
+                    alert(name + "Added You can Send him message now")
 
 
                     // window.location.replace("http://localhost:3000/Contacts")
 
                 } else {
-                    alert("Error");
+                    alert("Error, try again");
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;
 

@@ -59,7 +59,7 @@ class UserProfile extends Component {
                     window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
 
                 } else {
-                    alert("Error or you maybe have no contacts yet");
+                    alert("Error or No contacts yet, Go and Add some");
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;
 
