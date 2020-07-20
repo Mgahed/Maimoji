@@ -68,7 +68,9 @@ class ChatHistory extends (Component) {
 
                 if (mgahd === "True") {
                     var whats = response.data.whatsapp
-                    window.location.replace(whats)
+                    // window.location.replace("http://localhost:3000/Contacts")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
+                    window.open(whats, "_blank")
 
 
                     // console.log(response.data)
