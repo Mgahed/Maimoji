@@ -5,6 +5,7 @@ import './Home.css';
 export default class Home extends Component {
     render() {
         sessionStorage.clear();
+        // setTimeout("location.href = 'http://localhost:3000/Signin';", 3000);
         return (
             <div>
             <div class="fixed-top">
