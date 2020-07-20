@@ -21,6 +21,11 @@ class ChatHistory extends (Component) {
         var neutral = sessionStorage.getItem("neutral");
         var happy = sessionStorage.getItem("happy");
         var sad = sessionStorage.getItem("sad");
+        if (happy === null){
+          neutral = "-1";
+          happy = "-1";
+          sad = "-1";
+        }
         var sender = sessionStorage.getItem("id");
         var reciver = JSON.parse(window.localStorage.getItem("rec")); // Retrieving
 
