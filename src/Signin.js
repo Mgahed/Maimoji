@@ -64,7 +64,7 @@ class Signin extends Component {
           // window.location.replace("http://localhost:3000/UserProfile")
           window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
         } else {
-          alert("Error");
+          alert("Wrong mail or password");
         }
         //document.getElementById("usermail").innerHTML = mail;
         sessionStorage.setItem("mail", mail);

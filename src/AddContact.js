@@ -41,7 +41,7 @@ class AddContact extends Component {
                     // window.location.replace("http://localhost:3000/Contacts")
 
                 } else {
-                    alert("Error, try again");
+                    alert("User not exist, check email or number you want to add");
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;
 

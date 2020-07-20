@@ -62,7 +62,7 @@ class Signup extends Component {
             // window.location.replace("https://maimojiwebapp.herokuapp.com/Signin")
 
 				} else {
-					alert("ErrorMaybe some Information already exist");
+					alert("Error,Maybe some Information already exist");
 				}
 				//document.getElementById("Demo").innerHTML = mgahd;
 
