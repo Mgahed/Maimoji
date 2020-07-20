@@ -55,8 +55,8 @@ class UserProfile extends Component {
                     window.localStorage.setItem("loop", JSON.stringify(loop)); // Saving
 
 
-                    // window.location.replace("http://localhost:3000/Contacts")
-                    window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
+                    window.location.replace("http://localhost:3000/Contacts")
+                    // window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
 
                 } else {
                     alert("Error");
@@ -90,6 +90,7 @@ class UserProfile extends Component {
 
 
                 <div>
+                <div class="fixed-top">
                     <div class="card text-center">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
@@ -114,6 +115,10 @@ class UserProfile extends Component {
                             </ul>
                         </div>
                     </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
 
                     <div>
 
@@ -175,8 +180,8 @@ class UserProfile extends Component {
 
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

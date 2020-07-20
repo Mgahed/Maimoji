@@ -125,7 +125,30 @@ class ChatHistory extends (Component) {
 
 
             <div>
+            <div class="fixed-top">
+            <div class="card text-center">
+                <div class="card-header">
+                    <ul class="nav nav-pills card-header-pills">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/UserProfile" variant="body2">UserProfile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Contacts" variant="body2">Contacts</a>
 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/AddContact" variant="body2">Add Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+            <br></br>
+            <br></br>
+            <br></br>
 
 
                 {/* <div class="card text-center">

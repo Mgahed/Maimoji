@@ -64,7 +64,6 @@ class AddContact extends Component {
             console.log(loop)
             if (fis === null) {
                 return <div>
-
                     <div class="card text-center">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
@@ -97,7 +96,7 @@ class AddContact extends Component {
             }
             else {
                 return <div>
-
+                <div class="fixed-top">
                     <div class="card text-center">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
@@ -117,24 +116,36 @@ class AddContact extends Component {
                             </ul>
                         </div>
                     </div>
-
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div class="jumbotron">
                     <center>
+                    <h1>Add Contact</h1>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                         <form class="nav-link" onSubmit={this.submitHandler}>
                             <input type="hidden" name="id" value={id} onChange={this.changeHandler} ></input>
                             <input type="hidden" name="typo" value={typo} onChange={this.changeHandler} ></input>
-                            <input type="text" name="mailornum" onChange={this.changeHandler} ></input>
-                            <Button
-                                type="submit"
-                            > Add
-                                    </Button>
+                            <div class="input-group mb-3">
+                              <input Style="height: 50px;" type="text" class="form-control" name="mailornum" onChange={this.changeHandler}  placeholder="Enter User Mail or Number"></input>
+                              <div class="input-group-append">
+                                <Button Style="width: 70px;" class="btn btn-success" type="submit">ADD</Button>
+                              </div>
+                            </div>
                         </form>
                     </center>
+                    </div>
                 </div>
             }
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

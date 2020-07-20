@@ -65,8 +65,8 @@ class Contacts extends Component {
                     window.localStorage.setItem("rec", JSON.stringify(rec)); // Saving
                     window.localStorage.setItem("sen", JSON.stringify(sen)); // Saving
 
-                    // window.location.replace("http://localhost:3000/ChatHistory")
-                    window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
+                    window.location.replace("http://localhost:3000/ChatHistory")
+                    // window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
 
 
                 } else {
@@ -112,6 +112,7 @@ class Contacts extends Component {
 
 
                 <div>
+                <div class="fixed-top">
                     <div class="card text-center">
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
@@ -131,6 +132,10 @@ class Contacts extends Component {
                             </ul>
                         </div>
                     </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
 
                     {/* <div>
                     {items}
@@ -143,7 +148,11 @@ class Contacts extends Component {
                                 <img src={logo} alt="Logo" />
                             </div>
                         </div>
-                        <h1 class="dark-color">Contacts</h1>
+                        <div class="jumbotron">
+                        <center><h1 class="dark-color">Contacts</h1></center>
+                        <br></br>
+                        <br></br>
+                        <br></br>
                         <h2>
 
                             <div class="row about-list">
@@ -156,18 +165,22 @@ class Contacts extends Component {
                                             // return <option value={z}>{Arr[index]}</option>
 
 
-                                            return <div> <input name="reciver" value={z} type="radio" onChange={this.changeHandler}></input> {Arr[index]}</div>
+                                            return <div>
+                                            <div class="card bg-secondary text-white">
+                                            <div class="card-body">
+                                             <input name="reciver" value={z} type="radio" onChange={this.changeHandler}></input> {Arr[index]}</div>
+                                             </div><br></br></div>
 
                                         })}
                                         {/* {contactnames.map((x, i) => {
                                         return <li >{x}</li>
                                     })} */}
-                                        <br></br>
                                         <Button
                                             type="submit"
-                                            class="btn btn-primary"
+                                            class="btn btn-info"
+                                            Style = "width: 50%; height: 35px;"
                                         >
-                                            select </Button>
+                                            <h2>select</h2> </Button>
                                     </form>
 
 
@@ -194,7 +207,7 @@ class Contacts extends Component {
                         </h2>
 
 
-
+                          </div >
                     </div >
 
 
@@ -210,8 +223,8 @@ class Contacts extends Component {
             )
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }
