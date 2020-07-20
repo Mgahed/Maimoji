@@ -133,7 +133,7 @@ class AddContact extends Component {
             }
         }
         else{
-            window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }
