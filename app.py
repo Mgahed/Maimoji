@@ -294,7 +294,7 @@ class message(Resource):
             recivermail = reciverreturn[2]
             recivernumber = "+2" + recivernumber
 #########################mai w whatsapp#################################
-            def send_email(subject, mesag, sendername):
+            def send_email(subject, mesag, sendername, recivermail):
                 try:
                     fromm = sendername
                     server = smtplib.SMTP('smtp.gmail.com:587')
@@ -302,7 +302,7 @@ class message(Resource):
                     server.starttls()
                     server.login("maimojiapp@gmail.com", "MaimojiApp.com")
                     message = 'Subject: {}\nFrom: {}\n\n{}'.format(subject,fromm, mesag)
-                    server.sendmail("maimojiapp@gmail.com", "abdelrhmanmgahed131@gmail.com ", message)
+                    server.sendmail("maimojiapp@gmail.com", recivermail, message)
                     server.quit()
                     print("Success: Email sent!")
                 except:
@@ -311,9 +311,9 @@ class message(Resource):
             subject = "From MaiMoji App"
             mesag = mesgg
             mesag = mesag + "\n\n\n\n\nNote: \nThis mail sent from MaiMoji App\nYou cant reply here use the App"
-            send_email(subject, mesag, sendername)
-            phone = "+201100479096"
-            # phone = recivernumber
+            send_email(subject, mesag, sendername, recivermail)
+            # phone = "+201100479096"
+            phone = recivernumber
             print(phone)
             txt = mesg
             whatsapp = "https://api.whatsapp.com/send?phone={}&text={}".format(phone,txt)
