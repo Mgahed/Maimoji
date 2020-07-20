@@ -35,9 +35,9 @@ export async function getFullFaceDescription(blob, inputSize = 512) {
     .withFaceExpressions();
 
   console.log(fullDesc)
-  var neutral = "";
-  var happy = "";
-  var sad = "";
+  var neutral = "-1";
+  var happy = "-1";
+  var sad = "-1";
   try {
     neutral = fullDesc[0].expressions.neutral;
     happy = fullDesc[0].expressions.happy;
@@ -48,7 +48,14 @@ export async function getFullFaceDescription(blob, inputSize = 512) {
     console.log("neutarl = " + neutral)
     console.log("happy = " + happy)
     console.log("sad = " + sad)
-  } catch{ console.log("No Dedection") }
+  } catch{ console.log("No Dedection")
+  sessionStorage.setItem("neutral",neutral)
+  sessionStorage.setItem("happy",happy)
+  sessionStorage.setItem("sad",sad)
+  console.log("no neutarl = " + neutral)
+  console.log("no happy = " + happy)
+  console.log("no sad = " + sad)
+ }
   return fullDesc;
 }
 
