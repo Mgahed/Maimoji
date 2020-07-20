@@ -12,8 +12,20 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 
-
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 class Signup extends Component {
 
@@ -82,34 +94,32 @@ class Signup extends Component {
 
 		const { FN } = this.state
 		return (
-<sss>
 			<div>
 
 				<div class="card text-center">
 					<div class="card-header">
 						<ul class="nav nav-pills card-header-pills">
 							<li class="nav-item">
-								<a class="nav-link" href="/" variant="body2">Home</a>
+								<a class="nav-link" href="/" variant="body2"><h4>Home</h4></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" href="/Signup" variant="body2">Signup</a>
+								<a class="nav-link active" href="/Signup" variant="body2"><h4>Signup</h4></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/Signin" variant="body2">Signin</a>
+								<a class="nav-link" href="/Signin" variant="body2"><h4>Signin</h4></a>
 							</li>
-							
 						</ul>
 					</div>
 				</div>
-
+				<div class="jumbotron">
 				<Container component="main" maxWidth="xs">
 					<CssBaseline />
-					<center><Avatar style={useStyles.Avatar}></Avatar> </center>
-					<Typography component="h1" variant="h5">
-						<center> <pre>Sign up
-
-							</pre> </center>
-					</Typography>
+					<center>
+					<Avatar style={useStyles.Avatar}></Avatar> </center>
+					<center>
+					<h1>
+						Sign up
+						</h1></center>
 					<form onSubmit={this.submitHandler}>
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>
@@ -198,14 +208,17 @@ class Signup extends Component {
 							</Grid>
 						</Grid>
 					</form>
-
-					<Box mt={5}>
-
-					</Box>
+					<div class="jumbotron">
+					<div class="fixed-bottom">
+			<Box mt={5}>
+				<Copyright />
+			</Box>
+			</div>
+			</div>
 				</Container>
+				</div>
 
 			</div>
-			</sss>
 		)
 	}
 }

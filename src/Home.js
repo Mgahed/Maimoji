@@ -7,22 +7,27 @@ export default class Home extends Component {
         sessionStorage.clear();
         return (
             <div>
+            <div class="fixed-top">
                 <div class="card text-center">
                     <div class="card-header">
                         <ul class="nav nav-pills card-header-pills">
                             <li class="nav-item">
-                                <a class="nav-link active" href="/" variant="body2">Home</a>
+                                <a class="nav-link active" href="/" variant="body2"><h4>Home</h4></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Signup" variant="body2">Signup</a>
+                                <a class="nav-link" href="/Signup" variant="body2"><h4>Signup</h4></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Signin" variant="body2">Signin</a>
+                                <a class="nav-link" href="/Signin" variant="body2"><h4>Signin</h4></a>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
+                </div>
+                <br></br>
+                <br></br>
+                <br></br>
                 <Container>
                     <Jumbotron>
                         <Image src="assets/dog-people.jpg" className="header-image" />

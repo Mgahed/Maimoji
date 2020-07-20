@@ -61,8 +61,8 @@ class Signin extends Component {
           var name = response.data.name;
           var num = response.data.number;
           var id = response.data.id;
-          window.location.replace("http://localhost:3000/UserProfile")
-          // window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
+          // window.location.replace("http://localhost:3000/UserProfile")
+          window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
         } else {
           alert("Error");
         }
@@ -115,43 +115,39 @@ class Signin extends Component {
 
     return (
       <div>
-
+      <div class="fixed-top">
         <div class="card text-center">
           <div class="card-header">
             <ul class="nav nav-pills card-header-pills">
               <li class="nav-item">
-                <a class="nav-link" href="/" variant="body2">Home</a>
+                <a class="nav-link" href="/" variant="body2"><h4>Home</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Signup" variant="body2">Signup</a>
+                <a class="nav-link" href="/Signup" variant="body2"><h4>Signup</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/Signin" variant="body2">Signin</a>
+                <a class="nav-link active" href="/Signin" variant="body2"><h4>Signin</h4></a>
               </li>
 
             </ul>
           </div>
         </div>
+        <div class="jumbotron">
         <center>
           <br></br>
           <br></br>
           <br></br>
           <br></br>
-          <Grid >
-            <CssBaseline />
-            <Grid item xs={false} sm={4} md={7} className={useStyles.image} />
-            <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
               <div className={useStyles.paper}>
                 <Avatar className={useStyles.avatar}>
-
                 </Avatar>
                 <Typography component="h1" variant="h5">
                   Sign in
           </Typography>
                 <form onSubmit={this.submitHandler}>
+                <Grid item xs={12} sm={3}>
                   <TextField
                     variant="outlined"
-                    margin="normal"
                     required
                     fullWidth
                     id="num"
@@ -162,11 +158,14 @@ class Signin extends Component {
                     autoFocus
                     onChange={this.changeHandler}
                   />
+                  </Grid>
+                  <br></br>
+                  <Grid item xs={12} sm={3}>
                   <TextField
                     variant="outlined"
+                    fullWidth
                     margin="normal"
                     required
-                    fullWidth
                     name="pass"
                     label="Password"
                     type="password"
@@ -174,39 +173,45 @@ class Signin extends Component {
                     autoComplete="current-password"
                     onChange={this.changeHandler}
                   />
+                  </Grid>
+                  <br></br>
                   <FormControlLabel
                     control={<Checkbox value="remember" color="primary" />}
                     label="Remember me"
                   />
+                  <br></br>
+                  <Grid item xs={12} sm={3}>
                   <Button
+                  fullWidth
                     type="submit"
-                    fullWidth
                     variant="contained"
                     color="primary"
                     className={useStyles.submit}
                   >
                     Sign In
             </Button>
-                  <Grid container>
-                    <Grid item xs>
-                      <Link href="#" variant="body2">
-                        Forgot password?
-                </Link>
-                    </Grid>
-                    <Grid item>
+            </Grid>
+            <br></br>
                       <Link href="/Signup" variant="body2">
                         {"Don't have an account? Sign Up"}
                       </Link>
-                    </Grid>
-                  </Grid>
+                      <div class="jumbotron">
+                      <div class="fixed-bottom">
                   <Box mt={5}>
                     <Copyright />
                   </Box>
+                  </div>
+                  </div>
                 </form>
               </div>
-            </Grid>
-          </Grid>
         </center>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        </div>
+        </div>
       </div>
     )
   }

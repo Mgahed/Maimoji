@@ -101,17 +101,18 @@ class AddContact extends Component {
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/UserProfile" variant="body2">UserProfile</a>
+                                    <a class="nav-link" href="/UserProfile" variant="body2"><h4>UserProfile</h4></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link " href="/Contacts" variant="body2">Contacts</a>
+                                {//<li class="nav-item">
+                                  //  <a class="nav-link " href="/Contacts" variant="body2">Contacts</a>
 
+                              //  </li>
+                            }
+                                <li class="nav-item">
+                                    <a class="nav-link active " href="/AddContact" variant="body2"><h4>Add Contact</h4></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active " href="/AddContact" variant="body2">Add Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2">Log Out</a>
+                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2"><h4>Log Out</h4></a>
                                 </li>
                             </ul>
                         </div>
@@ -144,8 +145,8 @@ class AddContact extends Component {
             }
         }
         else{
-          window.location.replace("http://localhost:3000/")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          // window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

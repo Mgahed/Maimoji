@@ -65,8 +65,8 @@ class Contacts extends Component {
                     window.localStorage.setItem("rec", JSON.stringify(rec)); // Saving
                     window.localStorage.setItem("sen", JSON.stringify(sen)); // Saving
 
-                    window.location.replace("http://localhost:3000/ChatHistory")
-                    // window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
+                    // window.location.replace("http://localhost:3000/ChatHistory")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
 
 
                 } else {
@@ -117,17 +117,17 @@ class Contacts extends Component {
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/UserProfile" variant="body2">UserProfile</a>
+                                    <a class="nav-link" href="/UserProfile" variant="body2"><h4>UserProfile</h4></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/Contacts" variant="body2">Contacts</a>
+                                    <a class="nav-link active" href="/Contacts" variant="body2"><h4>Contacts</h4></a>
 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="/AddContact" variant="body2">Add Contact</a>
+                                    <a class="nav-link " href="/AddContact" variant="body2"><h4>Add Contact</h4></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2">Log Out</a>
+                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2"><h4>Log Out</h4></a>
                                 </li>
                             </ul>
                         </div>
@@ -143,11 +143,7 @@ class Contacts extends Component {
 
                     <div>
 
-                        <div class="col-lg-6">
-                            <div class="about-avatar">
-                                <img src={logo} alt="Logo" />
-                            </div>
-                        </div>
+
                         <div class="jumbotron">
                         <center><h1 class="dark-color">Contacts</h1></center>
                         <br></br>
@@ -155,9 +151,8 @@ class Contacts extends Component {
                         <br></br>
                         <h2>
 
-                            <div class="row about-list">
-                                <div class="col-md-6">
-                                    <form class="Right" onSubmit={this.submitHandler}>
+
+                                    <form onSubmit={this.submitHandler}>
                                         <input name="sender" type="hidden" value={sender} onChange={this.changeHandler}></input>
                                         {contactids.map((value, index) => {
                                             var z = value;
@@ -175,12 +170,14 @@ class Contacts extends Component {
                                         {/* {contactnames.map((x, i) => {
                                         return <li >{x}</li>
                                     })} */}
+                                    <center>
                                         <Button
                                             type="submit"
                                             class="btn btn-info"
-                                            Style = "width: 50%; height: 35px;"
+                                            Style = "width: 10%; height: 50px;"
                                         >
                                             <h2>select</h2> </Button>
+                                            </center>
                                     </form>
 
 
@@ -199,10 +196,7 @@ class Contacts extends Component {
 
 
 
-                                </div>
 
-
-                            </div>
 
                         </h2>
 
@@ -223,8 +217,8 @@ class Contacts extends Component {
             )
         }
         else{
-          window.location.replace("http://localhost:3000/")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          // window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

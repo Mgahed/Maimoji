@@ -200,7 +200,6 @@ class ChatHistory extends (Component) {
                                         <div class="card-header">{date1[index]}</div>
                                         <div class="card-body">
                                             <h1 class="card-title">Sender: {sender1[index]}</h1>
-                                            <p>{ sessionStorage.getItem("neutral")}</p>
                                             <p class="card-text">{message1[index]}</p>
                                         </div>
                                     </div>

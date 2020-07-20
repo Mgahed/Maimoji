@@ -55,11 +55,11 @@ class UserProfile extends Component {
                     window.localStorage.setItem("loop", JSON.stringify(loop)); // Saving
 
 
-                    window.location.replace("http://localhost:3000/Contacts")
-                    // window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
+                    // window.location.replace("http://localhost:3000/Contacts")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
 
                 } else {
-                    alert("Error");
+                    alert("Error or you maybe have no contacts yet");
                 }
                 //document.getElementById("Demo").innerHTML = mgahd;
 
@@ -95,22 +95,22 @@ class UserProfile extends Component {
                         <div class="card-header">
                             <ul class="nav nav-pills card-header-pills">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="/UserProfile" variant="body2">UserProfile</a>
+                                    <a class="nav-link active" href="/UserProfile" variant="body2"><h4>UserProfile</h4></a>
                                 </li>
                                 <li class="nav-item">
                                     <form class="nav-link" onSubmit={this.submitHandler}>
                                         <input type="hidden" name="id" value={id} onChange={this.changeHandler} ></input>
                                         <Button
                                             type="submit"
-                                        > Contacts
+                                        > <h4>Contacts</h4>
                                     </Button>
                                     </form>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href="/AddContact" variant="body2">Add Contact</a>
+                                    <a class="nav-link " href="/AddContact" variant="body2"><h4>Add Contact</h4></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2">Log Out</a>
+                                    <a class="p-3 mb-2 bg-danger text-white" href="/" variant="body2"><h4>Log Out</h4></a>
                                 </li>
                             </ul>
                         </div>
@@ -119,7 +119,6 @@ class UserProfile extends Component {
                     <br></br>
                     <br></br>
                     <br></br>
-
                     <div>
 
 
@@ -134,29 +133,29 @@ class UserProfile extends Component {
                                     <img src={logo} alt="Logo" />
                                 </div>
                             </div>
+                            <div class ="jumbotron">
                             <h1 class="dark-color">User Profile</h1>
-
+                            <br></br>
+                            <br></br>
+                            <br></br>
                             <h2>
 
                                 <div class="row about-list">
                                     <div class="col-md-6">
 
                                         <div class="media">
-                                            <label>Name</label>
-                                            <p>{name}</p>
+                                            <label>Name/ </label>
+                                            <h2>{name}</h2>
                                         </div>
-
+                                        <br></br>
                                         <div class="media">
-                                            <label> Phone Number </label>
-                                            <p>{num}</p>
+                                            <label>number/ </label>
+                                            <h2>{num}</h2>
                                         </div>
-
-
-
-
+                                        <br></br>
                                         <div class="media">
-                                            <label>E-mail </label>
-                                            <p>{mail}</p>
+                                            <label>mail/ </label>
+                                            <h3>{mail}</h3>
                                         </div>
 
 
@@ -167,6 +166,7 @@ class UserProfile extends Component {
                                 </div>
 
                             </h2>
+                            </div>
 
 
                         </center >
@@ -180,8 +180,8 @@ class UserProfile extends Component {
 
         }
         else{
-          window.location.replace("http://localhost:3000/")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          // window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }
