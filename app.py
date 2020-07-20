@@ -257,19 +257,19 @@ class message(Resource):
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
                 mesgg += " :)"
-            if maxface == happy and maxface > "0.8":
+            if maxface == happy and maxface > "0.8" and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "happy"
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
                 mesgg += " :)"
-            if maxface == neutral and maxface > "0.8":
+            if maxface == neutral and maxface > "0.8"  and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "neutral"
                 sent = "Nutral"
                 mesg = mmesgg + " \U0001F610"
                 mesgg += " :|"
-            if maxface == sad and maxface > "0.8":
+            if maxface == sad and maxface > "0.8"  and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "sad"
                 sent = 'Negative'
