@@ -66,8 +66,8 @@ class Contacts extends Component {
                     window.localStorage.setItem("rec", JSON.stringify(rec)); // Saving
                     window.localStorage.setItem("sen", JSON.stringify(sen)); // Saving
 
-                    window.location.replace("http://localhost:3000/ChatHistory")
-                    // window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
+                    // window.location.replace("http://localhost:3000/ChatHistory")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
 
 
                 } else {
@@ -220,8 +220,8 @@ class Contacts extends Component {
             )
         }
         else{
-          window.location.replace("http://localhost:3000/")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          // window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

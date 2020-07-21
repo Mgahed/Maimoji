@@ -35,7 +35,7 @@ class AddContact extends Component {
 
                 if (mgahd === "True") {
 
-                    alert(name + "Added You can Send him message now")
+                    alert(name + " Added You can Send him message now")
 
 
                     // window.location.replace("http://localhost:3000/Contacts")
@@ -157,8 +157,8 @@ class AddContact extends Component {
             }
         }
         else{
-          window.location.replace("http://localhost:3000/")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          // window.location.replace("http://localhost:3000/")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }
