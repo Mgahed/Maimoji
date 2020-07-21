@@ -16,22 +16,43 @@ export default class Home extends Component {
                                 <a class="nav-link active" href="/" variant="body2"><h4>Home</h4></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Signup" variant="body2"><h4>Signup</h4></a>
+                                <a class="nav-link" href="/Signup" variant="body2"><h4>Sign up</h4></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/Signin" variant="body2"><h4>Signin</h4></a>
+                                <a class="nav-link" href="/Signin" variant="body2"><h4>Sign in</h4></a>
                             </li>
 
                         </ul>
                     </div>
                 </div>
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
                 <Container>
                     <Jumbotron>
-                        <Image src="assets/dog-people.jpg" className="header-image" />
+                    <center><h1>Maimoji</h1></center>
+                    <br></br>
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+
+                      <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/gifatk.gif" alt="Los Angeles"></img>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/pinks.jpg" alt="Chicago"></img>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/dog-people.jpg" alt="New York"></img>
+                      </div>
+                      </div>
+
+                      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                      <span class="carousel-control-prev-icon"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#demo" data-slide="next">
+                      <span class="carousel-control-next-icon"></span>
+                      </a>
+
+                      </div>
                         <h2>Welcome to Maimoji</h2>
                         <p>This is the new future of chating</p>
                     </Jumbotron>

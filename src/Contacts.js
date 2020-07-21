@@ -3,6 +3,7 @@ import axios from 'axios'
 import './UserProfile.css';
 import Button from '@material-ui/core/Button';
 import logo from './logo.png';
+import './Contacts.css';
 
 
 
@@ -65,8 +66,8 @@ class Contacts extends Component {
                     window.localStorage.setItem("rec", JSON.stringify(rec)); // Saving
                     window.localStorage.setItem("sen", JSON.stringify(sen)); // Saving
 
-                    // window.location.replace("http://localhost:3000/ChatHistory")
-                    window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
+                    window.location.replace("http://localhost:3000/ChatHistory")
+                    // window.location.replace("https://maimojiwebapp.herokuapp.com/ChatHistory")
 
 
                 } else {
@@ -161,10 +162,12 @@ class Contacts extends Component {
 
 
                                             return <div>
-                                            <div class="card bg-secondary text-white">
+                                            <center>
+                                            <div Style="Width: 30%" class="card bg-secondary text-white">
                                             <div class="card-body">
-                                             <input name="reciver" value={z} type="radio" onChange={this.changeHandler}></input> {Arr[index]}</div>
-                                             </div><br></br></div>
+                                            <br></br>
+                                             <input name="reciver" value={z} type="radio" onChange={this.changeHandler}></input> {Arr[index]}<br></br><br></br></div>
+                                             </div><br></br></center></div>
 
                                         })}
                                         {/* {contactnames.map((x, i) => {
@@ -217,8 +220,8 @@ class Contacts extends Component {
             )
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

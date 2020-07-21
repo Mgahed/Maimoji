@@ -121,6 +121,18 @@ class AddContact extends Component {
                     <br></br>
                     <br></br>
                     <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                     <div class="jumbotron">
                     <center>
                     <h1>Add Contact</h1>
@@ -145,8 +157,8 @@ class AddContact extends Component {
             }
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

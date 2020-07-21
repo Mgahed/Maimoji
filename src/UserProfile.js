@@ -55,8 +55,8 @@ class UserProfile extends Component {
                     window.localStorage.setItem("loop", JSON.stringify(loop)); // Saving
 
 
-                    // window.location.replace("http://localhost:3000/Contacts")
-                    window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
+                    window.location.replace("http://localhost:3000/Contacts")
+                    // window.location.replace("https://maimojiwebapp.herokuapp.com/Contacts")
 
                 } else {
                     alert("Error or No contacts yet, Go and Add some");
@@ -102,7 +102,7 @@ class UserProfile extends Component {
                                         <input type="hidden" name="id" value={id} onChange={this.changeHandler} ></input>
                                         <Button
                                             type="submit"
-                                        > <h4>Contacts</h4>
+                                        > <h4 class="text-primary">Contacts</h4>
                                     </Button>
                                     </form>
                                 </li>
@@ -116,6 +116,12 @@ class UserProfile extends Component {
                         </div>
                     </div>
                     </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                     <br></br>
                     <br></br>
                     <br></br>
@@ -144,17 +150,17 @@ class UserProfile extends Component {
                                     <div class="col-md-6">
 
                                         <div class="media">
-                                            <label>Name/ </label>
+                                            <label>Name: </label>
                                             <h2>{name}</h2>
                                         </div>
                                         <br></br>
                                         <div class="media">
-                                            <label>number/ </label>
+                                            <label>Number: </label>
                                             <h2>{num}</h2>
                                         </div>
                                         <br></br>
                                         <div class="media">
-                                            <label>mail/ </label>
+                                            <label>Mail: </label>
                                             <h3>{mail}</h3>
                                         </div>
 
@@ -166,6 +172,8 @@ class UserProfile extends Component {
                                 </div>
 
                             </h2>
+                            <br></br><br></br><br></br><br></br><br></br>
+                            <br></br><br></br>
                             </div>
 
 
@@ -180,8 +188,8 @@ class UserProfile extends Component {
 
         }
         else{
-          // window.location.replace("http://localhost:3000/")
-            window.location.replace("https://maimojiwebapp.herokuapp.com/")
+          window.location.replace("http://localhost:3000/")
+            // window.location.replace("https://maimojiwebapp.herokuapp.com/")
         }
     }
 }

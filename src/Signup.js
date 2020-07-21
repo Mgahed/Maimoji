@@ -97,7 +97,7 @@ class Signup extends Component {
 		const { FN } = this.state
 		return (
 			<div>
-
+      <div class="fixed-top">
 				<div class="card text-center">
 					<div class="card-header">
 						<ul class="nav nav-pills card-header-pills">
@@ -105,23 +105,26 @@ class Signup extends Component {
 								<a class="nav-link" href="/" variant="body2"><h4>Home</h4></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" href="/Signup" variant="body2"><h4>Signup</h4></a>
+								<a class="nav-link active" href="/Signup" variant="body2"><h4>Sign up</h4></a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="/Signin" variant="body2"><h4>Signin</h4></a>
+								<a class="nav-link" href="/Signin" variant="body2"><h4>Sign in</h4></a>
 							</li>
 						</ul>
 					</div>
+          </div>
 				</div>
 				<div class="jumbotron">
+        <br></br>
+        <br></br>
+        <br></br>
 				<Container component="main" maxWidth="xs">
-					<CssBaseline />
 					<center>
 					<Avatar style={useStyles.Avatar}></Avatar> </center>
 					<center>
-					<h1>
+					<Typography component="h1" variant="h5">
 						Sign up
-						</h1></center>
+					  </Typography></center>
 					<form onSubmit={this.submitHandler}>
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>

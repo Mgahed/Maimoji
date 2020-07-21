@@ -61,8 +61,8 @@ class Signin extends Component {
           var name = response.data.name;
           var num = response.data.number;
           var id = response.data.id;
-          // window.location.replace("http://localhost:3000/UserProfile")
-          window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
+          window.location.replace("http://localhost:3000/UserProfile")
+          // window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
         } else {
           alert("Wrong mail or password");
         }
@@ -123,10 +123,10 @@ class Signin extends Component {
                 <a class="nav-link" href="/" variant="body2"><h4>Home</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/Signup" variant="body2"><h4>Signup</h4></a>
+                <a class="nav-link" href="/Signup" variant="body2"><h4>Sign up</h4></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/Signin" variant="body2"><h4>Signin</h4></a>
+                <a class="nav-link active" href="/Signin" variant="body2"><h4>Sign in</h4></a>
               </li>
 
             </ul>
