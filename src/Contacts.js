@@ -176,7 +176,7 @@ class Contacts extends Component {
                                     <center>
                                         <Button
                                             type="submit"
-                                            class="btn btn-info"
+                                          class="btn btn-success"
                                             Style = "width: 10%; height: 50px;"
                                         >
                                             <h2>select</h2> </Button>
