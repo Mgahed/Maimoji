@@ -102,7 +102,7 @@ class UserProfile extends Component {
                                         <input type="hidden" name="id" value={id} onChange={this.changeHandler} ></input>
                                         <Button
                                             type="submit"
-                                        > <h4 class="text-primary">Contacts</h4>
+                                        > <h4 class="text-primary"><div class="text-capitalize">Contacts</div></h4>
                                     </Button>
                                     </form>
                                 </li>
