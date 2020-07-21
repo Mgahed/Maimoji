@@ -45,6 +45,7 @@ class pgcontactdao(contactdao):
             db.session.remove()
             for value in getcontt:
                 contacts.append(value.userID2)
+            db.session.remove()
             return contacts
 
         except:
