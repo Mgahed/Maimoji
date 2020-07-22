@@ -57,7 +57,7 @@ export default class Home extends Component {
                         <h2>Welcome to Maimoji</h2>
                         <p>This is the new future of chating</p>
                     </Jumbotron>
-                    <Row className="show-grid text-center">
+                    {/*<Row className="show-grid text-center">
                         <Col xs={12} sm={4} className="person-wrapper">
                             <Image src="assets/person-1.jpg" circle className="profile-pic" />
                             <h3>Mgahd</h3>
@@ -73,7 +73,7 @@ export default class Home extends Component {
                             <h3>Sherif</h3>
                             <p>Algorithm</p>
                         </Col>
-                    </Row>
+                    </Row>*/}
                 </Container>
             </div>
         )
