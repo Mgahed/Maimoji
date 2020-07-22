@@ -3,6 +3,7 @@ import axios from 'axios'
 import './UserProfile.css';
 import Button from '@material-ui/core/Button';
 import logo from './logo.png';
+import './font.css';
 
 
 

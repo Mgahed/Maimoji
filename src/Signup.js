@@ -13,12 +13,13 @@ import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
+import './font.css';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
+      <Link color="inherit" href="https://maimojiwebapp.herokuapp.com/">
         Your Website
       </Link>{' '}
       {new Date().getFullYear()}
@@ -58,8 +59,8 @@ class Signup extends Component {
 				var mgahd = response.data.boolean;
 				if (mgahd === "True") {
 					alert("Signed Up successful, Go and Signin");
-          window.location.replace("http://localhost:3000/Signin")
-            // window.location.replace("https://maimojiwebapp.herokuapp.com/Signin")
+          // window.location.replace("http://localhost:3000/Signin")
+            window.location.replace("https://maimojiwebapp.herokuapp.com/Signin")
 
 				} else {
 					alert("Error,Maybe some Information already exist");

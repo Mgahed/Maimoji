@@ -7,6 +7,7 @@ import VideoInput from './views/VideoInput'
 // import ScriptTag from 'react-script-tag';
 // import faceapii from './faceapii';
 // import * as faceapi from 'face-api.js';
+import './font.css';
 
 
 

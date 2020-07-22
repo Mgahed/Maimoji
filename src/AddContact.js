@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import './UserProfile.css';
 import Button from '@material-ui/core/Button';
+import './font.css';
 
 
 
@@ -38,7 +39,8 @@ class AddContact extends Component {
                     alert(name + " Added You can Send him message now")
 
 
-                    // window.location.replace("http://localhost:3000/Contacts")
+                    window.location.replace("https://maimojiwebapp.herokuapp.com/UserProfile")
+                    // window.location.replace("http://localhost:3000/UserProfile")
 
                 } else {
                     alert("User not exist, check email or number you want to add");

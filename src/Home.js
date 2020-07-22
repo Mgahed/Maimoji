@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Jumbotron, Container, Row, Col, Image } from 'react-bootstrap';
 import './Home.css';
+import './font.css';
 
 export default class Home extends Component {
     render() {
