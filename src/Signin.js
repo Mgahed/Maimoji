@@ -129,6 +129,9 @@ class Signin extends Component {
               <li class="nav-item">
                 <a class="nav-link active" href="/Signin" variant="body2"><h4>Sign in</h4></a>
               </li>
+              <li class="nav-item">
+                  <img  class="nav-link" Style="width:6%; float:Right; position: fixed; top:0; right:0;" src="./assets/maimojilogo.jpg"></img>
+              </li>
 
             </ul>
           </div>
