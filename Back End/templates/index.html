@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login &amp; Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
+  <body>
+
+      <div class="container" id="container">
+        <!--The container Of Two Buttons {login & signUp}-->
+        <div class="but-groups">
+
+          <div id="btn"></div> <!--This div for the color which deal with cursor-->
+          <!-- <button onclick="login()">Login</button> -->
+          <button onclick="signUp()">Sign Up</button>
+
+        </div>
+        <!--<h2>Sign Up</h2>-->
+
+        <!-- start The First Form Login-->
+        <!-- <form id="login" action="{{url_for('NormalLogin')}}" method="post"> -->
+
+          <!-- <div class="inputBox">
+              <input type="number" name="lnum" required>
+              <label>Mobile Number</label>
+          </div>
+          <div class="inputBox">
+                <input type="password" name="lpass" required>
+                <label> Password</label>
+          </div>
+          <input type="submit" name="login-submit" value="Login">
+          <h2>OR</h2> -->
+          <button type="button" id="gmailbtn" name="button">
+          <a href="{{ url_for('GmailLogin') }}"><h3><i class="fa fa-google"> </i> Login With Gmail</h3></a>
+          </button>
+        <!-- </form> -->
+        <!-- start The First Form Login-->
+        <form id="signUp" action="{{url_for('signup')}}" method="post">
+
+          <div class="inputBox">
+              <input type="text" name="FN" required>
+              <label>First Name</label>
+          </div>
+          <div class="inputBox">
+              <input type="text" name="LN" required>
+              <label>Last Name</label>
+          </div>
+        <div class="inputBox">
+              <input type="email" name="mail" required>
+              <label>E-Mail</label>
+        </div>
+        <div class="inputBox">
+              <input type="number" name="snum" required>
+              <label>Whats App Number</label>
+        </div>
+        <div class="inputBox">
+              <input type="password" name="spass" required>
+              <label>Password</label>
+        </div>
+        <div class="inputBox">
+              <input type="password" name="cspass" required>
+              <label>Confirm Password</label>
+        </div>
+          <input type="submit" name="send" value="send">
+        </form>
+      </div>
+      <div class="img-cont">
+      <img src="{{ url_for('static', filename='images/001.png') }}">
+      </div>
+
+      <script>
+        // var x = document.getElementById("login"),
+          var  y = document.getElementById("signUp"),
+            l = document.getElementById("container"),
+            z = document.getElementById("btn");
+
+        function signUp() {
+          x.style.left = "550px";
+          x.style.position= "relative";
+          y.style.left= "0";
+          y.style.top= "-310px";
+          z.style.left = "50%";
+          l.style.height = "680px";
+
+        }
+        // function login() {
+        //   x.style.left = "0";
+        //   x.style.position= "relative";
+        //   y.style.left= "550px";
+        //   y.style.top= "0";
+        //   z.style.left = "0";
+        //   l.style.height = "443px";
+        // }
+      </script>
+      </body>
+</html>

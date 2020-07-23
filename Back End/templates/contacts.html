@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+      {% block foo %}
+      <ul>
+      {% for i in contact %}
+
+        <h4><li>{{i}}</li></h4><br>
+
+      {% endfor %}
+    </ul>
+
+      {% endblock %}
+
+  </body>
+</html>
