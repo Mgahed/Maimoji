@@ -254,33 +254,33 @@ class message(Resource):
             if sent == 0.5:
                 sent = "Nutral"
                 mesg = mmesgg + " \U0001F610"
-                mesgg += " :|"
+                mesgg += " \U0001F610"
             elif sent == 0:
                 sent = 'Negative'
                 mesg = mmesgg + " \U0001F641"
-                mesgg += " :("
+                mesgg += " \U0001F641"
             elif sent == 1:
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
-                mesgg += " :)"
+                mesgg += " \U0001f600"
             if maxface == happy and maxface > "0.8" and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "happy"
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
-                mesgg += " :)"
+                mesgg += " \U0001f600"
             if maxface == neutral and maxface > "0.8"  and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "neutral"
                 sent = "Nutral"
                 mesg = mmesgg + " \U0001F610"
-                mesgg += " :|"
+                mesgg += " \U0001F610"
             if maxface == sad and maxface > "0.8"  and maxface <= "1":
                 mesgg = mmesgg
                 facestate = "sad"
                 sent = 'Negative'
                 mesg = mmesgg + " \U0001F641"
-                mesgg += " :("
+                mesgg += " \U0001F641"
             getmsgdao = pgdaofact.getmsgdao()
             msg1=msg(1,sender,reciver,mesg,datime)
             resmsg = getmsgdao.sendmsg(msg1)
@@ -302,7 +302,7 @@ class message(Resource):
                     server.starttls()
                     server.login("maimojiapp@gmail.com", "MaimojiApp.com")
                     message = 'Subject: {}\nFrom: {}\n\n{}'.format(subject,fromm, mesag)
-                    server.sendmail("maimojiapp@gmail.com", recivermail, message)
+                    server.sendmail("maimojiapp@gmail.com", recivermail, message.encode('utf-8'))
                     server.quit()
                     print("Success: Email sent!")
                 except:
