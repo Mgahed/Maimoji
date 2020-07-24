@@ -262,8 +262,8 @@ class message(Resource):
                 mesgg += " \U0001F610"
             elif sent == 0:
                 sent = 'Negative'
-                mesg = mmesgg + " \U0001F641"
-                mesgg += " \U0001F641"
+                mesg = mmesgg + " \u2639\uFE0F"
+                mesgg += " \u2639\uFE0F"
             elif sent == 1:
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
@@ -284,8 +284,8 @@ class message(Resource):
                 mesgg = mmesgg
                 facestate = "sad"
                 sent = 'Negative'
-                mesg = mmesgg + " \U0001F641"
-                mesgg += " \U0001F641"
+                mesg = mmesgg + " \u2639\uFE0F"
+                mesgg += " \u2639\uFE0F"
             getmsgdao = pgdaofact.getmsgdao()
             msg1=msg(1,sender,reciver,mesg,datime)
             resmsg = getmsgdao.sendmsg(msg1)
