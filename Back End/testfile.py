@@ -9,6 +9,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from flask_restful import Resource,Api,reqparse
 from flask_cors import CORS
+import hashlib
 from flask_dance.contrib.google import make_google_blueprint, google
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
@@ -93,7 +94,10 @@ def test_login():
                     "number": "01100479096"
 
                }
-    assert login.login("01100479096","aaaa") == somedict
+    Password = "aaaa"
+    Password = hashlib.sha256(Password.encode())
+    Password = Password.hexdigest()
+    assert login.login("01100479096", Password) == somedict
 
 # ##################Contacts###################
 class contacts(Resource):

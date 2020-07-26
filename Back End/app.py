@@ -11,6 +11,7 @@ from sqlalchemy import or_
 from flask_restful import Resource,Api,reqparse
 from flask_cors import CORS
 from flask_dance.contrib.google import make_google_blueprint, google
+import hashlib
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 
@@ -110,6 +111,8 @@ class signup(Resource):
         mail = args["mail"]
         number = args["snum"]
         Password = args["spass"]
+        Password = hashlib.sha256(Password.encode())
+        Password = Password.hexdigest()
         usersignup = pgdaofact.getuserdao()
         user1=userr(1,firstname,lastname,mail,number,Password)
         res = usersignup.insertuser(user1)
@@ -134,6 +137,8 @@ class login(Resource):
         args = parser.parse_args()
         number = args["number"]
         Password = args["pass"]
+        Password = hashlib.sha256(Password.encode())
+        Password = Password.hexdigest()
         userlogin = pgdaofact.getuserdao()
         res = userlogin.logintuser(number,Password)
         # print(res)
@@ -257,8 +262,8 @@ class message(Resource):
                 mesgg += " \U0001F610"
             elif sent == 0:
                 sent = 'Negative'
-                mesg = mmesgg + " \U0001F641"
-                mesgg += " \U0001F641"
+                mesg = mmesgg + " \u2639\uFE0F"
+                mesgg += " \u2639\uFE0F"
             elif sent == 1:
                 sent = 'Positive'
                 mesg = mmesgg + " \U0001f600"
@@ -279,8 +284,8 @@ class message(Resource):
                 mesgg = mmesgg
                 facestate = "sad"
                 sent = 'Negative'
-                mesg = mmesgg + " \U0001F641"
-                mesgg += " \U0001F641"
+                mesg = mmesgg + " \u2639\uFE0F"
+                mesgg += " \u2639\uFE0F"
             getmsgdao = pgdaofact.getmsgdao()
             msg1=msg(1,sender,reciver,mesg,datime)
             resmsg = getmsgdao.sendmsg(msg1)
