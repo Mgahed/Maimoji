@@ -24,7 +24,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-script-tag": "^1.1.2",
-    "react-scripts": "^3.4.1",
+    "react-scripts": "^5.0.1",
     "react-webcam": "^5.2.0",
     "serve": "^11.3.2",
     "tfjs-image-recognition-base": "^0.6.2"
